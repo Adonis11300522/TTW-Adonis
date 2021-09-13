@@ -1,0 +1,159 @@
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="getUsersList($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-grid class="ion-no-padding">
+        <div class="header">
+        </div>
+        <div class="helo">
+            <h1>{{'firstTabHome.title' | translate}}</h1>
+            <p class="add">{{address}}</p>
+            <p class="edi">{{'firstTabHome.edi' | translate}}</p>
+        </div>
+        <div class="ion-padding-start ion-padding-end top-right">
+            <img src="../../../assets/Group 486.png">
+        </div>
+        <div class="ion-padding-start ion-padding-end image-top">
+            <div class="dir" *ngIf="lan == 'en' && event?.top">
+                <img (click)="goList(event?.top?.id)" src="{{event?.top?.imagePath + event?.top?.image}}" *ngIf="event">
+            </div>
+            <div class="dir2" *ngIf="lan == 'ar' && event?.top">
+                <img (click)="goList(event?.top?.id)" src="{{event?.top?.imagePath + event?.top?.image}}" *ngIf="event">
+            </div>
+            <ion-skeleton-text *ngIf="!event" style="height: 182px;" animated></ion-skeleton-text>
+            <ion-buttons class="upload-btn" mode="md" *ngIf="event?.events && event?.top">
+                <ion-button (click)="socialSharing(event?.top)">
+                    <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+
+            <ion-buttons class="upload-btn" mode="md" *ngIf="!event?.events">
+                <ion-button>
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-button>
+            </ion-buttons>
+
+            <div *ngIf="event?.events">
+                <ion-buttons class="heart-btn" (click)="like(event?.top?.id)" *ngIf="event?.top?.isLike == false">
+                    <ion-button>
+                        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+                <ion-buttons class="heart-btn" (click)="like(event?.top?.id)" *ngIf="event?.top?.isLike == true">
+                    <ion-button>
+                        <ion-icon slot="icon-only" class="active" name="heart"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </div>
+
+            <ion-row *ngIf="event?.events">
+                <ion-col size="2">
+                    <div class="ion-text-center">
+                        <ion-text class="date">{{event?.top?.time | date:"MMM"}}<br> <span>{{event?.top?.time | date:"dd"}}</span></ion-text>
+                    </div>
+                </ion-col>
+                <ion-col size="10" class="pride">
+                    <ion-text>{{event?.top?.name}}<br> <span>{{event?.top?.description | slice:0:30}}</span></ion-text>
+                    <hr>
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="!event?.events">
+                <ion-col size="2">
+                    <div class="ion-text-center">
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </div>
+                </ion-col>
+                <ion-col size="10" class="pride">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                    <hr>
+                </ion-col>
+            </ion-row>
+
+
+            <div *ngIf="event?.events" class="div">
+                <ion-item *ngFor="let item of event?.events" button mode="md">
+                    <ion-thumbnail *ngIf="lan == 'en'" class="english" (click)="goList(item?.id)">
+                        <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                            [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                        </ngx-progressive-img-loader>
+                    </ion-thumbnail>
+                    <ion-thumbnail *ngIf="lan == 'ar'" class="arr" (click)="goList(item?.id)">
+                        <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                            [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                        </ngx-progressive-img-loader>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h1 class="ion-text-capitalize" (click)="goList(item?.id)">{{item?.name}}</h1>
+                        <p (click)="goList(item?.id)" class="p1">{{item?.time}}</p>
+                        <h6 (click)="goList(item?.id)">{{item?.description | slice:0:15}}<span *ngIf="item?.description?.length >= 15">..</span>
+                        </h6>
+                        <div *ngIf="item?.rate != 0">
+                            <ion-icon name="star" [ngClass]="item?.rate >= 1 ? 'star' : 'non-star'"></ion-icon>
+                            <ion-icon name="star" [ngClass]="item?.rate >= 2 ? 'star' : 'non-star'"></ion-icon>
+                            <ion-icon name="star" [ngClass]="item?.rate >= 3 ? 'star' : 'non-star'"></ion-icon>
+                            <ion-icon name="star" [ngClass]="item?.rate >= 4 ? 'star' : 'non-star'"></ion-icon>
+                            <ion-icon name="star" [ngClass]="item?.rate >= 5 ? 'star' : 'non-star'"></ion-icon>
+                        </div>
+                    </ion-label>
+                    <ion-buttons class="heart_red" *ngIf="lan == 'en'">
+                        <ion-button (click)="socialSharing(item)">
+                            <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+
+
+                    <ion-buttons class="heart_redAr" *ngIf="lan == 'ar'">
+                        <ion-button (click)="socialSharing(item)">
+                            <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <div *ngIf="lan == 'en'">
+                        <ion-buttons class="heart_sec" (click)="like(item?.id)" *ngIf="item?.isLike == false">
+                            <ion-button>
+                                <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                            </ion-button>
+                        </ion-buttons>
+
+                        <ion-buttons class="heart_sec" (click)="like(item?.id)" *ngIf="item?.isLike == true">
+                            <ion-button>
+                                <ion-icon slot="icon-only" class="active" name="heart"></ion-icon>
+                            </ion-button>
+                        </ion-buttons>
+                    </div>
+                    <div *ngIf="lan == 'ar'">
+                        <ion-buttons class="heart_sec2" (click)="like(item?.id)" *ngIf="item?.isLike == false">
+                            <ion-button>
+                                <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                            </ion-button>
+                        </ion-buttons>
+
+                        <ion-buttons class="heart_sec2" (click)="like(item?.id)" *ngIf="item?.isLike == true">
+                            <ion-button>
+                                <ion-icon slot="icon-only" class="active" name="heart"></ion-icon>
+                            </ion-button>
+                        </ion-buttons>
+                    </div>
+                </ion-item>
+            </div>
+
+            <div class="nodata_div" *ngIf="event?.events.length == 0">
+                <img class="nodata_img" src="../../../assets/no-data.png" >
+            </div>
+
+            <div *ngIf="!event?.events">
+                <ion-item *ngFor="let item of [1,2,3,4]" button mode="md">
+                    <ion-thumbnail style="padding: 5px;">
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <ion-skeleton-text style="height: 12px;width: 50%;" animated></ion-skeleton-text>
+                        <ion-skeleton-text animated style="height: 13px;width: 70%;"></ion-skeleton-text>
+                        <ion-skeleton-text animated style="height: 10px;"></ion-skeleton-text>
+                        <ion-skeleton-text animated style="height: 10px;"></ion-skeleton-text>
+                    </ion-label>
+                </ion-item>
+            </div>
+        </div>
+    </ion-grid>
+</ion-content>

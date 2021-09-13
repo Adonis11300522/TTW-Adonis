@@ -1,0 +1,294 @@
+{
+    "donemodel": {
+        "label": "Done"
+    },
+    "eventPage": {
+        "share": "Share this Event",
+        "contactOrganizer": "Contact Organizer",
+        "reportEvent": "Report Event",
+        "cancel": "Cancel"
+    },
+    "social": {
+        "title": "Share the Event",
+        "whats": "Whatsapp",
+        "face": "Facebook",
+        "gmai": "Gmail",
+        "insta": "Instagram"
+    },
+    "addReview": {
+        "title": "Add Review",
+        "how": "How Many Stars You Will Give",
+        "btn": "Share Review"
+    },
+    "coupons": {
+        "title": "Coupons",
+        "upto": "Offer code is valid upto"
+    },
+    "editProfile": {
+        "title": "Edit Profile",
+        "name": "First Name",
+        "lastName": "Last Name",
+        "mobile": "Mobile"
+    },
+    "findFolo": {
+        "title": "Following",
+        "follow": "Follow"
+    },
+    "followpage": {
+        "title": "Follow to see what's",
+        "going": "going on",
+        "best": "Hear about great events first, from our best",
+        "loca": "local organizers",
+        "follow": "Follow",
+        "following": "Following",
+        "btn": "Get Started"
+    },
+    "goout": {
+        "title": "When do you want to go out ?",
+        "date": "Select a Date",
+        "btn": "Next"
+    },
+    "heading": [{
+            "name": "All"
+        },
+        {
+            "name": "Today"
+        },
+        {
+            "name": "Tommorow"
+        },
+        {
+            "name": "This Week"
+        },
+        {
+            "name": "Choose a date"
+        }
+    ],
+    "likes": {
+        "title": "Likes"
+    },
+    "locate1": {
+        "where": "Where ?",
+        "useMy": "Use my current location",
+        "popular": "Popular Locations",
+        "next": "Next"
+    },
+    "moodfor": {
+        "goOut": "When do you want to go out ?",
+        "all": "All",
+        "btn": "Next"
+    },
+    "notificationCentre": {
+        "centre": "Notification Centre",
+        "no": "No Current Notification",
+        "recent": "Your recent purchases events from",
+        "other": "organizers you follow and other"
+    },
+    "payment": {
+        "title": "Payment",
+        "card": "CARD NUMBER",
+        "expire": "EXPRIRATION MONTH",
+        "expireYear": "EXPRIRATION YEAR",
+        "cvv": "CVV",
+        "proced": "Proceed to Pay"
+    },
+    "pickcity": {
+        "title": "Where do you",
+        "go": "go out?",
+        "weW": "We'll show you what's good near you",
+        "pick": "Pick a city"
+    },
+    "profile": {
+        "like": "Likes",
+        "tickets": "My Tickets",
+        "following": "Following",
+        "notificationCentre": "Notification Centre",
+        "sett": "Settings",
+        "prim": "Primary City",
+        "orga": "Organizers",
+        "sup": "Support",
+        "pri": "Privacy",
+        "terms": "Terms of Service",
+        "cookig": "Cookie Policy",
+        "acknowleg": "Acknowledgements",
+        "about": "About",
+        "version": "Version",
+        "help": "Help Centre",
+        "log": "Logout"
+    },
+    "reportEvent2": {
+        "title": "Report Event",
+        "email": "Email",
+        "reason": "Reason",
+        "message": "Message",
+        "send": "Send Message",
+        "emailPlace": "Enter Your Email",
+        "reportPlace": "Other"
+    },
+    "searchresult": {
+        "in": "In",
+        "placeholder": "Search Anything",
+        "all": "All",
+        "freeEvent": "Free Event",
+        "event": "Events"
+    },
+    "searchTab": {
+        "place": "Search for.....",
+        "want": "I want to go out",
+        "and": "And I'm in the mood for",
+        "searchi": "Search in",
+        "findThings": "Find things to do!"
+    },
+    "signin": {
+        "skip": "Skip for now",
+        "signin": "SIGN IN",
+        "email": "Email",
+        "emailPlace": "Enter Your Email",
+        "pass": "Password",
+        "passPlace": "*************",
+        "btn": "Sign In",
+        "dontAc": "Don't have an account",
+        "btn2": "Sign Up"
+    },
+    "signup": {
+        "skip": "Skip for now",
+        "lets": "Let's Get Started",
+        "signin": "Sign up or log in to see our top picks for you!",
+        "email": "Email",
+        "emailPlace": "Enter Your Email",
+        "name": "First Name",
+        "namePlace": "Enter Your First Name",
+        "lastName": "Last Name",
+        "lastNamePlace": "Enter Your Last Name",
+        "pass": "Password",
+        "passPlace": "*************",
+        "phone": "Phone",
+        "phonePlace": "Enter Your Phone",
+        "btnMai": "Sign Up",
+        "bys": "By signing up, I agree to EventBrite's",
+        "terms": "terms of services",
+        "and": "And",
+        "communi": "community guidelines",
+        "pri": "privacy policy"
+    },
+    "tickets": {
+        "upcoming": "Upcoming",
+        "past": "Past tickets",
+        "not": "Not seeing your tickes?",
+        "learn": "Learn more about how to find them",
+        "find": "Find My tickets",
+        "id": "OrderId",
+        "add": "+Add Your Review",
+        "viewD": "View Details"
+    },
+    "ticketDetailss": {
+        "name": "Ticket Details",
+        "invalid": "Sorry the Promotional code you entered is not valid",
+        "by": "By",
+        "price": "Price",
+        "fre": "Free",
+        "qty": "Qty",
+        "sold": "Sold Out",
+        "tie": "Time",
+        "to": "To",
+        "how": "How much do you want ?",
+        "you": "You have coupon to apply !",
+        "now": "Apply Now",
+        "dis": "Discount",
+        "p": "Pay",
+        "freBook": "Free Book",
+        "type": "Ticket Type",
+        "more": "More info"
+    },
+    "singleTicketPage": {
+        "sold": "Sold Out",
+        "by": "By",
+        "online": "Online Event",
+        "abt": "About",
+        "re": "Read More",
+        "tgs": "Tags",
+        "loca": "Location",
+        "or": "Organizer",
+        "fol": "Follow",
+        "folwo": "Following",
+        "moreEventLike": " More events iike this",
+        "tiOf": "Tickets Of",
+        "bu": "Buy Ticket"
+    },
+    "singleDetailsOfPage": {
+        "title": "details",
+        "r": "+Add Your Review",
+        "n": "Ticket No",
+        "wt": "Qty",
+        "sol": "Sold Out",
+        "st": "Order Status",
+        "dis": "Coupon Discount",
+        "p": "Payment",
+        "fre": "Free",
+        "paySta": "Payment Status",
+        "pen": "Pending",
+        "co": "Complete",
+        "ge": "Payment Gateway",
+        "cod": "COD",
+        "btn":"Ticket Details"
+    },
+    "siPa": {
+        "ti": "Tickets",
+        "not": "Not seeing your tickes?",
+        "learn": "Learn more about how to find them",
+        "f": "Find My tickets"
+    },
+    "firstTabHome": {
+        "title": "What's good in",
+        "edi": "Editor's Picks"
+    },
+    "SelectLanguage": {
+        "label": "Select Language",
+        "english": "English",
+        "arabic": "Arabic",
+        "Cancel": "Cancel",
+        "ok": "Ok",
+        "l": "Loading.."
+    },
+    "alertPopup": {
+        "alert": "Alert",
+        "are": "Are You Sure you Want To Clear All Notification ?",
+        "text": "OK"
+    },
+    "paymentToast": {
+        "completed": "Booking Successfully Completed",
+        "sry": "Sorry ! Payment not Posible With RazorPay",
+        "notPossible": "Payment not Possible",
+        "done": "Payment Done Successfully",
+        "canceled": "Payment Cancelled"
+    },
+    "ticketToast": {
+        "notLogin": "Please Login......",
+        "already": "You Already Followed"
+    },
+    "tick2": {
+        "coupon": "Coupon Applied Successfully",
+        "some": "something went wrong",
+        "booking": "Booking Successfully Completed",
+        "more": "You can not Buy More Than",
+        "ticekN": "Ticket Not Available",
+        "re": "Reported Successfully",
+        "profile": "Profile updated successfully",
+        "im": "Image has successfuly Changed",
+        "cErr": "Invalid Coupon code for this event!"
+    },
+    "errs": {
+        "first_name": "The first name field is required.",
+        "last_name": "The last name field is required.",
+        "password": "The password field is required.",
+        "phone": "The phone field is required.",
+        "email": "The email field is required.",
+        "emailEr": "The email must be a valid email address.",
+        "passEr": "The password must be at least 6 characters."
+    },
+    "ticketqrcode":{
+        "title":"Ticket Details",
+        "ticket_number":"Ticket Number"
+    }
+    
+}

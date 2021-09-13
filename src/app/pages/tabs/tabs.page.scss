@@ -1,0 +1,14 @@
+ion-icon {
+    color: var(--filter-color);
+    font-size: 22px;
+}
+
+ion-tab-button {
+    --ripple-color: var(--ion-back-color);
+}
+
+ion-tab-bar {
+    padding-bottom: 0px;
+    height: 70px;
+    box-shadow: 0px -1px 3px 1px #eeeeee;
+}

@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-padding-top">
+        <ion-icon (click)="goBack()" name="chevron-back"></ion-icon>
+    </ion-toolbar> 
+</ion-header>
+<ion-content fullscreen="true">
+    <ion-grid class="ion-no-padding">
+        <ion-row class="ion-padding-start ion-padding-end">
+            <ion-col size="12">
+                <ion-item class="ion-no-padding item1" lines="full">
+                    <ion-icon class="icon" name="location-sharp"></ion-icon> &nbsp;
+                    <input autofocus="true" ngx-google-places-autocomplete value="{{address}}" placeholder="{{'locate1.where' | translate}}" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)">
+                </ion-item>
+                <ion-item class="ion-no-padding item" lines="none" *ngIf="isFrom !== 'search'">
+                    <ion-icon name="locate"></ion-icon> &nbsp;
+                    <ion-text style="color: var(--black-color);" (click)="detected()">{{'locate1.useMy' | translate}}</ion-text>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <div *ngIf="isFrom !== 'search'">
+            <ion-row style="padding-top: 8px;" class="ion-padding-start popular ion-padding-bottom">
+                <ion-col size="12" class="ion-no-padding">
+                    <ion-text size="large">{{'locate1.popular' | translate}}</ion-text>
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngFor="let l of get" class="ion-padding-start ion-padding-end">
+                <ion-col size="12" (click)="goGetstarted(l)">
+                    <ion-text class="text1">{{l.name}}</ion-text><br>
+                    <ion-text class="text2">{{l.address}}</ion-text>
+                    <hr>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+
+
+
+</ion-content>
+<ion-footer class="ion-no-border">
+    <ion-toolbar class="ion-no-padding">
+        <ion-button class="last" (click)="go()" expand="full" color="var(--theme-color)">{{'locate1.next' | translate}}</ion-button>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,221 @@
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+    <ion-header class="ion-no-border">
+        <ion-toolbar class="ion-no-padding" [style.backgroundColor]="state == 1 ? '' : 'rgba(0,0,0,0.7)'" mode="md">
+            <ion-buttons class="back" slot="start">
+                <ion-back-button icon="chevron-back" defaultHref="/tabs/tab1"></ion-back-button>
+            </ion-buttons>
+            <ion-buttons slot="end" class="false" *ngIf="item?.isLike == false">
+                <ion-button (click)="event2()">
+                    <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end" class="false" (click)="event2()" *ngIf="item?.isLike == true">
+                <ion-button>
+                    <ion-icon slot="icon-only" name="heart" style="color: red;"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end" class="false" (click)="eventOrga()">
+                <ion-button>
+                    <ion-icon name="ellipsis-vertical" slot="icon-only"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <div class="black" *ngIf="item?.sold_out == true">
+                <div class="ion-text-start">
+                    <ion-icon name="bookmark"></ion-icon>
+                    <ion-text class="txt">{{'singleTicketPage.sold' | translate}}</ion-text>
+                </div>
+            </div>
+        </ion-toolbar>
+    </ion-header>
+    <div class="img_div">
+        <img [src]="item?.imagePath + item?.image" />
+        <div class="name_div">
+            <h3 class="name">
+                {{tdata?.name}}
+            </h3>
+        </div>
+    </div>
+    <ion-grid *ngIf="item?.gallery?.length > 0">
+        <ion-row>
+            <ion-col size="12">
+                <ion-slides pager="false" [options]="slideOptsTwo" #slideWithNav2 (ionSlideDidChange)="SlideDidChange(sliderTwo,slideWithNav2)">
+                    <ion-slide *ngFor="let s of item?.gallery" (click)="items(item?.imagePath + s)">
+                        <img src="{{item?.imagePath + s}}">
+                    </ion-slide>
+                </ion-slides>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="ion-no-padding">
+        <ion-row *ngIf="lan == 'en'" class="ion-padding-start ion-padding-end ion-padding-top">
+            <ion-col size="12">
+                <ion-text class="heading ion-text-capitalize">{{item?.name}}</ion-text><br>
+                <ion-text class="filter ion-text-justify">{{'singleTicketPage.by' | translate}} {{item?.organization?.first_name}} {{item?.organization?.last_name}}</ion-text>
+                <ion-row class="head">
+                    <ion-col size="1" class="cl">
+                        <i class="far fa-calendar"></i>
+                    </ion-col>
+                    <ion-col size="11" class="ion-padding-start">
+                        <ion-text class="date">{{item?.date}}</ion-text><br>
+                        <ion-text class="filter">{{item?.startTime}} - {{item?.endTime}}</ion-text><br>
+                        <ion-text class="filter" *ngIf="item?.address == null">{{'singleTicketPage.online' | translate}}</ion-text><br>
+                        <hr>
+                    </ion-col>
+                </ion-row>
+                <ion-row *ngIf="item?.address != null" class="head cl">
+                    <ion-col size="1" class="cl">
+                        <ion-icon name="location-outline"></ion-icon>
+                    </ion-col>
+                    <ion-col size="11" class="ion-padding-start">
+                        <ion-text class="date">{{item?.address}}</ion-text><br>
+                        <hr>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="lan == 'ar'" class="ion-padding-start ion-padding-end ion-padding-top rtl">
+            <ion-col size="12">
+                <ion-text class="heading ion-text-capitalize">{{item?.name}}</ion-text><br>
+                <ion-text class="filter ion-text-justify">{{'singleTicketPage.by' | translate}} {{item?.organization?.first_name}} {{item?.organization?.last_name}}</ion-text>
+                <ion-row class="head">
+                    <ion-col size="1" class="cl">
+                        <i class="far fa-calendar"></i>
+                    </ion-col>
+                    <ion-col size="11" class="ion-padding-start">
+                        <ion-text class="date">{{item?.date}}</ion-text><br>
+                        <ion-text class="filter">{{item?.startTime}} - {{item?.endTime}}</ion-text><br>
+                        <ion-text class="filter" *ngIf="item?.address == null">{{'singleTicketPage.online' | translate}}</ion-text><br>
+                        <hr>
+                    </ion-col>
+                </ion-row>
+                <ion-row *ngIf="item?.address != null" class="head" style="padding-top:20px">
+                    <ion-col size="1" style="padding-top: 5px;">
+                        <ion-icon name="location-outline"></ion-icon>
+                    </ion-col>
+                    <ion-col size="11" class="ion-padding-start">
+                        <ion-text class="date">{{item?.address}}</ion-text><br>
+                        <hr>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="lan == 'en'" class="ion-padding-start ion-padding-end ion-padding-top">
+            <ion-col size="12" class="ion-text-justify">
+                <h3 class="normal">{{'singleTicketPage.abt' | translate}}</h3>
+                <div [innerHTML]="item?.description" class="ion-text-justify ion-margin-top about"></div>
+                <span (click)="readMore(item?.description)">{{'singleTicketPage.re' | translate}}</span>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="lan == 'ar'" class="ion-padding-start ion-padding-end ion-padding-top rtl">
+            <ion-col size="12" class="ion-text-justify">
+                <h3 class="normal">{{'singleTicketPage.abt' | translate}}</h3>
+                <div [innerHTML]="item?.description" class="ion-text-justify ion-margin-top about"></div>
+                <span (click)="readMore(item?.description)">{{'singleTicketPage.re' | translate}}</span>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-padding-start ion-padding-end">
+            <ion-col size="12">
+                <hr>
+            </ion-col>
+        </ion-row>
+        <div *ngIf="lan == 'en'">
+            <ion-row class="ion-padding-start ion-padding-end" *ngIf="item?.hasTag?.length > 0">
+                <ion-col size="12">
+                    <h3 class="normal">{{'singleTicketPage.tgs' | translate}}</h3>
+                    <ion-chip *ngFor="let items of item?.hasTag">
+                        <ion-label>
+                            {{items}}
+                        </ion-label>
+                    </ion-chip>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div *ngIf="lan == 'ar'">
+            <ion-row class="ion-padding-start ion-padding-end rtl" *ngIf="item?.hasTag?.length > 0">
+                <ion-col size="12">
+                    <h3 class="normal">{{'singleTicketPage.tgs' | translate}}</h3>
+                    <ion-chip *ngFor="let items of item?.hasTag">
+                        <ion-label>
+                            {{items}}
+                        </ion-label>
+                    </ion-chip>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div [hidden]="item?.address == null">
+            <ion-row class="ion-padding">
+                <ion-col size="12">
+                    <ion-text class="normal">{{'singleTicketPage.loca' | translate}}</ion-text><br><br>
+                    <div id="mapssss" class="map"></div>
+                    <div class="ion-padding-top ion-text-center">
+                        <ion-text class="normal">{{item?.address}}</ion-text><br>
+                        <br><br>
+                        <img src="../../../assets/gr.png">
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+        <ion-row class="ion-margin-top">
+            <ion-col size="12">
+                <div class="folow">
+                    <div class="ion-text-center ion-margin-top">
+                        <img src="{{item?.organization?.imagePath}}" class="ion-margin-top">
+                        <h3 class="normal">{{item?.organization?.name}}</h3>
+                        <h3 class="normal">{{'singleTicketPage.or' | translate}}</h3>
+
+                        <ion-button color="white" *ngIf="item?.organization?.isFollow == false" (click)="event(item?.organization?.id)">{{'singleTicketPage.fol' | translate}}</ion-button>
+                        <ion-button color="white" *ngIf="item?.organization?.isFollow == true" (click)="event(item?.organization?.id)">{{'singleTicketPage.folwo' | translate}}</ion-button>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+        <h1 class="ion-padding normal">
+            {{'singleTicketPage.moreEventLike' | translate}}
+        </h1>
+        <div class="scrollcontainer">
+            <div *ngFor="let sc of item?.recent_event" class="ion-margin-start slider">
+                <img src="{{sc.imagePath + sc.image}}" (click)="goList(sc?.id)">
+                <div class="icons">
+                    <ion-buttons class="heart" mode="md">
+                        <ion-button *ngIf="sc?.isLike == false" (click)="like(sc?.id)">
+                            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                        </ion-button>
+                        <ion-button *ngIf="sc?.isLike == true" (click)="like(sc?.id)">
+                            <ion-icon slot="icon-only" name="heart" style="color: red;"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+                <ion-row class="ion-padding-bottom ion-margin-bottom r" (click)="itemSelected(sc?.id)">
+                    <ion-col size="2">
+                        <div class="ion-text-center">
+                            <ion-text class="dates">{{sc?.time | date : "MMM"}}<br> <span>{{sc?.time | date : "dd"}}</span></ion-text>
+                        </div>
+                    </ion-col>
+                    <ion-col size="10" class="prides" *ngIf="address!==''">
+                        <ion-text>{{sc.name}}<br> <span>{{sc.address}}</span></ion-text>
+                    </ion-col>
+                    <ion-col size="10" class="prides" *ngIf="sc.address==null">
+                        <ion-text>{{sc.name}}<br><span>{{'singleTicketPage.online' | translate}} </span></ion-text>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </div>
+        <hr>
+
+    </ion-grid>
+</ion-content>
+<ion-footer class="ion-no-padding ion-no-border">
+    <ion-toolbar class="ion-no-padding">
+        <ion-row class="ion-padding last">
+            <ion-col size="7" class="ion-padding-start ion-padding-end">
+                <ion-text class="footer">{{'singleTicketPage.tiOf' | translate}}</ion-text><br>
+                <ion-text class="filter">{{item?.name}}</ion-text>
+            </ion-col>
+            <ion-col size="5" class="ion-padding-end">
+                <ion-button (click)="goTicket(item?.id)" color="white">
+                    {{'singleTicketPage.bu' | translate}}
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

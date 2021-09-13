@@ -1,0 +1,11 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-no-padding">
+        <ion-text (click)="goReport()" slot="end"> {{'donemodel.label' | translate}}</ion-text>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="ion-text-center">
+        <p *ngFor="let item of data" (click)="event(item?.label)" [class.active]="item.label == select">{{item?.label}}</p>
+    </div>
+</ion-content>

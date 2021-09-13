@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-padding-top ion-padding-bottom" mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="tabs/tab5" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">{{'editProfile.title' | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="edit()">
+                <ion-icon name="checkmark-done" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div id="container">
+        <div *ngIf="lan == 'en'" class="ion-text-center ion-margin-top" (click)="albumSheet()">
+            <img class="profile" src="{{image}}" height="123px" width="123px">
+            <img class="picker" src="../../../assets/Profile/Group 8018.svg">
+        </div>
+        <div *ngIf="lan == 'ar'" class="ion-text-center ion-margin-top" (click)="albumSheet()">
+            <img class="profile" src="{{image}}" height="123px" width="123px">
+            <img class="picker2" src="../../../assets/Profile/Group 8018.svg">
+        </div>
+        <h2>{{data?.name}} {{data?.last_name}}</h2>
+        <ion-item-group class="ion-padding-start ion-padding-end ion-margin-start ion-margin-end">
+            <ion-item class="ion-no-padding">
+                <ion-text>{{'editProfile.name' | translate}}</ion-text>
+                <ion-input value="{{data?.name}}" [(ngModel)]="name"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="ion-no-padding">
+                <ion-text>{{'editProfile.lastName' | translate}}</ion-text>
+                <ion-input value="{{data?.last_name}}" [(ngModel)]="last_name"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="ion-no-padding">
+                <ion-text>{{'editProfile.mobile' | translate}}</ion-text>
+                <ion-input value="{{data?.phone}}" [(ngModel)]="phone"></ion-input>
+            </ion-item>
+        </ion-item-group>
+    </div>
+</ion-content>

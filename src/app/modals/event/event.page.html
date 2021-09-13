@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-no-padding">
+        <ion-row class="ion-no-padding">
+            <ion-col size="12">
+                <div (click)="socialSharing()" class="ion-text-center"> {{'eventPage.share' | translate}}
+                    <hr>
+                </div>
+                <div class="ion-text-center">
+                    <a href="mailto:email?subject=event">{{'eventPage.contactOrganizer' | translate}}</a>
+                    <hr>
+                </div>
+                <div (click)="goReport()" class="ion-text-center">
+                    {{'eventPage.reportEvent' | translate}}
+                    <hr>
+                </div>
+                <div (click)="close()" class="ion-text-center">
+                    {{'eventPage.cancel' | translate}}
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-header>

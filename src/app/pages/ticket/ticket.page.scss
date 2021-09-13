@@ -1,0 +1,391 @@
+.top-left {
+    top: 10%;
+    position: absolute;
+    height: 29px;
+    width: 29px;
+    border-radius: 20px;
+    padding: 2px;
+    opacity: 0.8;
+    background-color: #ffffff;
+    ion-icon {
+        color: var(--black-color);
+        font-size: 22px;
+    }
+}
+
+.img_div {
+    img {
+        width: -webkit-fill-available;
+        height: 250px;
+    }
+    position: relative;
+    .name_div {
+        position: absolute;
+        padding: 0 16px;
+        bottom: 0;
+        width: 100%;
+        .name {
+            font-family: "Poppins-Medium";
+            font-size: 20px;
+            color: var(--ion-color-white);
+        }
+    }
+}
+
+ion-header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    ion-toolbar {
+        --padding-start: 9px;
+        --padding-end: 4px;
+        --background: transparent;
+        --ion-color-base: transparent !important;
+        transform-style: flat;
+        transition: background-color 0.5s ease-in 0.5s;
+        .back {
+            height: 35px !important;
+            width: 35px !important;
+            background: white;
+            color: black;
+            border-radius: 50%;
+            box-shadow: 1px 1px 1px 1px #cccccc;
+            ion-back-button {
+                color: black !important;
+                --padding-start: 0px !important;
+            }
+        }
+        .false {
+            background: white;
+            height: 35px;
+            margin-right: 10px !important;
+            width: 35px;
+            border-radius: 50%;
+            box-shadow: 1px 1px 1px 1px #cccccc;
+            ion-button {
+                --padding-start: 7px;
+                ion-icon {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+.map {
+    height: 140px;
+}
+
+ion-chip {
+    --background: #eeeeee;
+}
+
+.black {
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    position: absolute;
+    bottom: 1%;
+    opacity: 0.7;
+    height: 35px;
+    padding-left: 10px;
+    padding-top: 8px;
+    ion-icon {
+        color: white;
+        font-size: 15px;
+        font-family: 'eco-regular';
+    }
+    .txt {
+        color: white;
+        font-size: 15px;
+        font-family: 'eco-regular';
+    }
+}
+
+.cl {
+    padding-top: 5px;
+}
+
+.heading {
+    font-size: 20px;
+    color: var(--black-color);
+    font-family: 'eco-medium';
+}
+
+.filter {
+    font-size: 14px;
+    color: var(--filter-color);
+    font-family: 'eco-medium';
+}
+
+.head {
+    padding-top: 20px;
+    i,
+    ion-icon {
+        font-size: 24px;
+        color: var(--filter-color);
+    }
+}
+
+.date {
+    font-size: 14px;
+    color: var(--black-color);
+    font-family: 'eco-medium';
+}
+
+span {
+    color: #58B7FF;
+    font-family: 'eco-medium';
+}
+
+hr {
+    border: 0.2px solid var(--filter-color);
+    opacity: 0.2;
+    margin-top: 20px;
+}
+
+.normal {
+    font-size: 18px;
+    color: var(--black-color);
+}
+
+.noramalfilter {
+    font-size: 14px;
+    color: var(--filter-color);
+}
+
+.cloud-upload {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    box-shadow: 1px 1px 1px 1px #cccccc;
+    position: absolute;
+    top: -26%;
+    right: 12px;
+    background: white;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px #cccccc;
+    ion-icon {
+        margin-left: -6px;
+    }
+}
+
+// Slider Style START 
+.custon-nav {
+    height: 48px;
+    width: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.about {
+    font-family: 'eco-regular';
+}
+
+.prev-icon-custom {
+    background: url(https://freakyjolly.com/demo/jquery/OwlCarousel2/nav-icon.png) no-repeat scroll 0px 0px;
+}
+
+ion-slide {
+    width: 90px !important;
+    margin-right: 5px !important;
+    height: 100px !important;
+    img {
+        height: 100px !important;
+    }
+}
+
+.prev-icon-custom.disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.next-icon-custom {
+    background: url(https://freakyjolly.com/demo/jquery/OwlCarousel2/nav-icon.png) no-repeat scroll -32px 0px;
+}
+
+.next-icon-custom.disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.slider-nav {
+    ion-icon {
+        height: 100%;
+    }
+}
+
+.slide-text {
+    position: absolute;
+    color: white;
+    bottom: 30px;
+}
+
+// Slider Style STOP
+.r {
+    margin-top: 40px;
+}
+
+.backs {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    box-shadow: 1px 1px 1px 1px #cccccc;
+    position: absolute;
+    top: 4%;
+    left: 10px;
+    background: white;
+    text-align: center;
+    color: black !important;
+    ion-back-button {
+        margin-left: -8px !important;
+    }
+}
+
+.heart2 {
+    position: absolute;
+    background: white;
+    top: 4%;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px 1px #dddddd;
+    right: 56px;
+    height: 37px;
+    width: 37px;
+    ion-icon {
+        margin-left: -6px;
+        margin-top: 2px;
+    }
+}
+
+.heart3 {
+    position: absolute;
+    background: white;
+    top: 4%;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px 1px #dddddd;
+    right: 10px;
+    height: 37px;
+    width: 37px;
+    ion-icon {
+        margin-left: -3px;
+        font-size: 19px;
+    }
+}
+
+.heart {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    box-shadow: 1px 1px 1px 1px #cccccc;
+    position: absolute;
+    top: -26%;
+    right: 23px;
+    background: white;
+    text-align: center;
+    ion-icon {
+        margin-left: -6px;
+    }
+}
+
+.rtl {
+    margin-right: 15px !important;
+}
+
+.folow {
+    img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+    height: 224px;
+    width: 100%;
+    background-color: #EDF6FB;
+    ion-button {
+        border: 0.5px solid var(--filter-color);
+        color: var(--black-color);
+        background-color: white;
+        height: 35px;
+        font-family: 'eco-medium';
+        text-transform: capitalize;
+        width: 104px;
+        border-radius: 5px;
+    }
+}
+
+h3,
+h1 {
+    font-family: 'eco-medium';
+}
+
+h3::first-letter {
+    font-size: 22px;
+}
+
+.scrollcontainer {
+    display: -webkit-flex;
+    overflow: scroll;
+    margin-right: 10px;
+    .slider {
+        height: auto;
+        border: 1px solid #bbbbbb;
+        border-radius: 10px;
+        min-width: 70%;
+        img {
+            height: 127px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            width: 100%;
+        }
+        margin-right: 15px;
+    }
+    .icons {
+        position: relative;
+        margin-top: -15px;
+        margin-left: 150px;
+    }
+    .dates {
+        color: var(--ion-back-color);
+        font-size: 14px;
+        span {
+            font-size: 14px;
+            color: var(--black-color);
+        }
+    }
+    .prides {
+        ion-text {
+            font-size: 18px;
+            color: var(--black-color);
+        }
+        span {
+            font-size: 13px;
+            color: var(--filter-color);
+        }
+    }
+}
+
+.scrollcontainer::-webkit-scrollbar {
+    display: none;
+}
+
+.footer {
+    font-size: 16px;
+    font-family: 'eco-medium';
+}
+
+.last {
+    ion-button {
+        background-color: var(--ion-back-color);
+        height: 35px;
+        width: 135px;
+        color: white;
+        font-family: eco-bold;
+        text-transform: capitalize;
+        overflow: hidden;
+        border-radius: 3px;
+    }
+}

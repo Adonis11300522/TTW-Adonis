@@ -1,0 +1,90 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-no-padding">
+        <ion-title class="ion-text-center">{{address}}</ion-title>
+    </ion-toolbar>
+</ion-header> 
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="getUsersList($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-grid class="ion-no-padding">
+        <ion-row class="ion-padding">
+            <ion-col size="12">
+                <ion-segment [(ngModel)]="select" mode="ios">
+                    <ion-segment-button color="#00acec" href="#Upcoming" value="Upcoming" style="border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
+                        <ion-label>{{'tickets.upcoming' | translate}}</ion-label>
+                    </ion-segment-button>
+                    <ion-segment-button href="#Pasttickets" value="Pasttickets">
+                        <ion-label>{{'tickets.past' | translate}}</ion-label>
+                    </ion-segment-button>
+                </ion-segment>
+            </ion-col>
+        </ion-row>
+        <div [ngSwitch]="select">
+            <div *ngSwitchCase="'Upcoming'">
+                <div class="container" *ngIf="data?.upcoming?.length == 0">
+                    <img src="../../../assets/second.png">
+                    <h3>{{'tickets.not' | translate}}</h3>
+                    <h4>{{'tickets.learn' | translate}}</h4>
+                    <h5>{{'tickets.find' | translate}}</h5>
+                </div>
+                <div class="ion-padding tic">
+                    <ion-row *ngFor="let item of data?.upcoming" class="ion-margin-bottom">
+                        <ion-col size="3">
+                            <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                                [preserveAspectRatio]="true" [img]="item?.event?.imagePath + item?.event?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                            </ngx-progressive-img-loader>
+                        </ion-col>
+                        <ion-col size="9">
+                            <h3 class="ion-text-capitalize">{{item?.event?.name}}</h3>
+                            <p>{{item?.created_at | date}}</p>
+                            <p>OrderId : {{item?.order_id}}</p>
+                            <div class="rating_div" *ngIf="item?.review != null  && item?.order_status !== 'Pending'">
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 1 ? 'rate' : 'active' "></ion-icon>
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 2 ? 'rate' : 'active' "></ion-icon>
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 3 ? 'rate' : 'active' "></ion-icon>
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 4 ? 'rate' : 'active' "></ion-icon>
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 5 ? 'rate' : 'active' "></ion-icon>
+                            </div>
+                            <ion-button *ngIf="item?.review == null && item?.order_status !== 'Pending'" fill="clear" mode="ios" (click)="reviewModal(item)">+Add Your Review</ion-button>
+                            <h6 (click)="singleDetailsView(item)">View Details</h6>
+                            <hr>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
+            <div *ngSwitchCase="'Pasttickets'">
+                <div class="container" *ngIf="data?.past?.length == 0">
+                    <img src="../../../assets/second.png">
+                    <h3>Not seeing your tickes?</h3>
+                    <h4>Learn more about how to find them</h4>
+                    <h5>Find My tickets</h5>
+                </div>
+                <div class="ion-padding tic">
+                    <ion-row *ngFor="let item of data?.past" class="ion-margin-bottom">
+                        <ion-col size="3">
+                            <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                                [preserveAspectRatio]="true" [img]="item?.event?.imagePath + item?.event?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                            </ngx-progressive-img-loader>
+                        </ion-col> 
+                        <ion-col size="9">
+                            <h3 class="ion-text-capitalize">{{item?.event?.name}}</h3>
+                            <p>{{item?.created_at | date}}</p>
+                            <p>OrderId : {{item?.order_id}}</p>
+                            <div class="rating_div" *ngIf="item?.review != null">
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 1 ? 'rate' : 'active' "></ion-icon>
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 2 ? 'rate' : 'active' "></ion-icon>
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 3 ? 'rate' : 'active' "></ion-icon>
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 4 ? 'rate' : 'active' "></ion-icon>
+                                <ion-icon name="star" [ngClass]="item?.review?.rate >= 5 ? 'rate' : 'active' "></ion-icon>
+                            </div>
+                            <ion-button *ngIf="item?.review == null" fill="clear" mode="ios" (click)="reviewModal(item)">+Add Your Review</ion-button>
+                            <h6 (click)="singleDetailsView(item)">View Details</h6>
+                        </ion-col>
+                    </ion-row>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </ion-grid>
+</ion-content>

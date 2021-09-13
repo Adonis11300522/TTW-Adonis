@@ -1,0 +1,76 @@
+ion-header {
+    box-shadow: 2px -2px 9px 0px #444444;
+}
+
+ion-toolbar {
+    --background: var(--ion-back-color);
+    --padding-top: 00px;
+    --min-height: 70px;
+
+    ion-back-button {
+        --color: white;
+    }
+
+    ion-title {
+        margin-top: 5px;
+        padding-left: 0px;
+        font-size: 20px;
+        --color: white;
+        font-family: 'eco-medium';
+    }
+}
+
+ion-content {
+    .ticket_detail {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ticket_card {
+        padding: 20px 0px 20px 0px;
+        margin: 20px 20px 20px 20px;
+        height: 295px;
+    }
+
+    .ticket_img {
+        margin-top: 6px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .img_div {
+        text-align: center;
+    }
+
+    .scanne_img {
+        height: 90px;
+        width: 180px;
+        opacity: 0.6;
+    }
+
+    .ticket_label {
+        font-size: 20px;
+        margin-left: 15px;
+        font-family: 'eco-medium';
+        color: black;
+    }
+
+    .bshadow {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        filter: drop-shadow(3px 3px 3px #222222);
+        opacity: 0.6;
+    }
+
+    .qr_tag {
+        text-align: center;
+        margin-top: 15px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 250px;
+        font-family: 'eco-medium';
+        color: black;
+    }
+}

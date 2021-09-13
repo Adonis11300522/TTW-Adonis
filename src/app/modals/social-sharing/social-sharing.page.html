@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-title>{{'social.title' | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-item lines="none" button mode="md" (click)="shareWhatsapp()">
+        <ion-avatar slot="start">
+            <img src="../../../assets/share/whatsapp.png">
+        </ion-avatar>
+        <ion-label>
+            <h1>{{'social.whats' | translate}}</h1>
+        </ion-label>
+    </ion-item>
+
+    <ion-item lines="none" (click)="shareFacebook()" button mode="md">
+        <ion-avatar slot="start">
+            <img src="../../../assets/share/fb.png">
+        </ion-avatar>
+        <ion-label>
+            <h1>{{'social.face' | translate}}</h1>
+        </ion-label>
+    </ion-item>
+
+    <ion-item lines="none" (click)="shareEmail()" button mode="md">
+        <ion-avatar slot="start">
+            <img src="../../../assets/share/gmail.png">
+        </ion-avatar>
+        <ion-label>
+            <h1>{{'social.gmai' | translate}}</h1>
+        </ion-label>
+    </ion-item> 
+
+    <ion-item lines="none" button mode="md" (click)="shareViaInsta()">
+        <ion-avatar slot="start">
+            <img src="../../../assets/share/instagram.png">
+        </ion-avatar>
+        <ion-label>
+            <h1>{{'social.insta' | translate}}</h1>
+        </ion-label>
+    </ion-item>
+</ion-content>

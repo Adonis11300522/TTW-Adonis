@@ -1,0 +1,113 @@
+<ion-content class="ion-padding-top ion-margin-top">
+    <div class="image-cropper ion-margin-top" (click)="goEdit()">
+        <img src="{{profile?.imagePath + profile?.image}}" class="rounded" />
+        <h1 class="h1">{{profile?.name}} {{profile?.last_name}}</h1>
+        <p class="p">{{profile?.email}}</p>
+        <ion-buttons class="bt" mode="md">
+            <ion-button>
+                <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </div>
+    <ion-grid class="ion-no-padding">
+        <ion-row class="ion-no-padding">
+            <ion-col size="12">
+                <div class="userac">
+                    <ion-row class="ion-padding-start">
+                        <ion-col size="4">
+                            <div class="ion-text-center">
+                                <ion-text class="normal">{{profile?.likeCount}}</ion-text><br>
+                                <ion-text class="filter">{{'profile.like' | translate}}</ion-text>
+                            </div>
+                            <div class="vr"></div>
+                        </ion-col>
+                        <ion-col size="4">
+                            <div class="ion-text-center">
+                                <ion-text class="normal">{{profile?.totalTicket}}</ion-text><br>
+                                <ion-text class="filter">{{'profile.tickets' | translate}}</ion-text>
+                            </div>
+                            <div class="vr"></div>
+                        </ion-col>
+                        <ion-col size="4">
+                            <div class="ion-text-center" (click)="find()">
+                                <ion-text class="normal">{{profile?.followingCount}}</ion-text><br>
+                                <ion-text class="filter">{{'profile.following' | translate}}</ion-text>
+                            </div>
+                            <div class=""></div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </ion-col>
+        </ion-row>
+        <div class="ion-padding">
+
+            <p class="ion-margin-start ion-margin-end" (click)="goNoti()">
+                <ion-icon name="notifications">{{'profile.notificationCentre' | translate}}</ion-icon>&nbsp;
+                <ion-text>{{'profile.notificationCentre' | translate}}</ion-text>
+            </p>
+
+
+            <hr class="ion-padding-start ion-padding-end">
+
+
+            <h4 class="ion-padding-start ion-padding-end">{{'profile.sett' | translate}}</h4>
+            <ion-item-group>
+                <ion-item lines="full">
+                    <ion-text>{{'profile.prim' | translate}}</ion-text>
+                    <ion-text slot="end" class="filter">{{addresss}}</ion-text>
+                </ion-item>
+                <ion-item lines="full" (click)="goSingle()" button mode="md">
+                    <ion-text>{{'profile.orga' | translate}}</ion-text>
+                    <ion-icon name="chevron-forward" slot="end"></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+
+            <h4 class="ion-padding-start ion-padding-end">{{'profile.sup' | translate}}</h4>
+            <ion-item-group>
+                <ion-item lines="full" button (click)="goToPolicy()" mode="md">
+                    <ion-text>{{'profile.pri' | translate}}</ion-text>
+                    <ion-icon *ngIf="language == 'en'" name="chevron-forward" slot="end"></ion-icon>
+                    <ion-icon *ngIf="language == 'ar'" name="chevron-forward" slot="end"></ion-icon>
+                </ion-item>
+                <ion-item lines="full" button (click)="goToTerms()" mode="md">
+                    <ion-text>{{'profile.terms' | translate}}</ion-text>
+                    <ion-icon *ngIf="language == 'en'" name="chevron-forward" slot="end"></ion-icon>
+                    <ion-icon *ngIf="language == 'ar'" name="chevron-forward" slot="end"></ion-icon>
+                </ion-item>
+                <ion-item lines="full" button (click)="goToTerms()" mode="md">
+                    <ion-text>{{'profile.cookig' | translate}}</ion-text>
+                    <ion-icon *ngIf="language == 'en'" name="chevron-forward" slot="end"></ion-icon>
+                    <ion-icon *ngIf="language == 'ar'" name="chevron-forward" slot="end"></ion-icon>
+                </ion-item>
+                <ion-item lines="none" button (click)="goToacknowledgement()" mode="md">
+                    <ion-text button>{{'profile.acknowleg' | translate}}</ion-text>
+                    <ion-icon *ngIf="language == 'en'" name="chevron-forward" slot="end"></ion-icon>
+                    <ion-icon *ngIf="language == 'ar'" name="chevron-forward" slot="end"></ion-icon>
+                </ion-item>
+            </ion-item-group>
+
+
+            <h4 class="ion-padding-start ion-padding-end">{{'profile.about' | translate}}</h4>
+            <ion-item-group>
+                <ion-item lines="full">
+                    <ion-text>{{'profile.version' | translate}}</ion-text>
+                    <ion-text class="filter">({{setting?.app_version}})</ion-text>
+                </ion-item>
+                <ion-item lines="full" button (click)="goTohelp()" mode="md">
+                    <ion-text>{{'profile.help' | translate}}</ion-text>
+                    <ion-icon *ngIf="language == 'en'" name="chevron-forward" slot="end"></ion-icon>
+                    <ion-icon *ngIf="language == 'ar'" name="chevron-forward" slot="end"></ion-icon>
+                </ion-item>
+                <ion-item lines="none" class="langu">
+                    <ion-label>{{'SelectLanguage.label' | translate}}</ion-label>
+                    <ion-select placeholder="Select One" [(ngModel)]="language" cancelText="{{'SelectLanguage.Cancel' | translate}}" okText="{{'SelectLanguage.ok' | translate}}" [interfaceOptions]="option" (ionChange)="languageChanged()">
+                        <ion-select-option value="en">{{'SelectLanguage.english' | translate}}</ion-select-option>
+                        <ion-select-option value="ar">{{'SelectLanguage.arabic' | translate}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-item-group>
+            <ion-button (click)="presentAlertConfirm()" class="btn" expand="full" color="#EDF6FB">{{'profile.log' | translate}}</ion-button>
+        </div>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-title>{{'singleDetailsOfPage.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="ion-padding tic">
+        <ion-row class="ion-margin-bottom">
+            <ion-col size="3">
+                <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'"
+                    [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                    [preserveAspectRatio]="true" [img]="item?.event?.imagePath + item?.event?.image"
+                    [thumbnail]="'https://picsum.photos/200/200?image='"
+                    [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                </ngx-progressive-img-loader>
+            </ion-col>
+            <ion-col size="9">
+                <h3 class="ion-text-capitalize">{{item?.event?.name}}</h3>
+                <p>{{item?.created_at | date}}</p>
+                <div class="rating_div" *ngIf="item?.review != null  && item?.order_status !== 'Pending'">
+                    <ion-icon name="star" [ngClass]="item?.review?.rate >= 1 ? 'rate' : 'active' "></ion-icon>
+                    <ion-icon name="star" [ngClass]="item?.review?.rate >= 2 ? 'rate' : 'active' "></ion-icon>
+                    <ion-icon name="star" [ngClass]="item?.review?.rate >= 3 ? 'rate' : 'active' "></ion-icon>
+                    <ion-icon name="star" [ngClass]="item?.review?.rate >= 4 ? 'rate' : 'active' "></ion-icon>
+                    <ion-icon name="star" [ngClass]="item?.review?.rate >= 5 ? 'rate' : 'active' "></ion-icon>
+                </div>
+                <ion-button *ngIf="item?.review == null && item?.order_status !== 'Pending'" fill="clear" mode="ios"
+                    (click)="reviewModal()">+{{'singleDetailsOfPage.r' | translate}}</ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-row class="rows">
+            <ion-col size="12">
+                <h4>{{'singleDetailsOfPage.n' | translate}} <span
+                        class="ion-float-right">{{item?.ticket?.ticket_number}}</span></h4>
+                <h4>{{'singleDetailsOfPage.wt' | translate}} <span
+                        class="ion-float-right">{{'singleDetailsOfPage.sol' | translate}}</span></h4>
+                <h4>{{'singleDetailsOfPage.st' | translate}} <span class="ion-float-right">{{item?.order_status}}</span>
+                </h4>
+                <h4>{{'singleDetailsOfPage.dis' | translate}} <span class="ion-float-right">{{currency}}
+                        {{item?.coupon_discount}}</span></h4>
+                <h4 *ngIf="item?.payment !== 0">{{'singleDetailsOfPage.p' | translate}} <span
+                        class="ion-float-right">{{currency}} {{item?.payment}}</span></h4>
+                <h4 *ngIf="item?.payment  == 0">{{'singleDetailsOfPage.p' | translate}} <span
+                        class="ion-float-right">{{'singleDetailsOfPage.fre' | translate}}</span></h4>
+                <h4 *ngIf="item?.payment_status == 0">{{'singleDetailsOfPage.paySta' | translate}} <span
+                        class="ion-float-right">{{'singleDetailsOfPage.pen' | translate}}</span></h4>
+                <h4 *ngIf="item?.payment_status == 1">{{'singleDetailsOfPage.paySta' | translate}} <span
+                        class="ion-float-right">{{'singleDetailsOfPage.co' | translate}}</span></h4>
+                <h4 *ngIf="item?.payment_type == 'LOCAL'">{{'singleDetailsOfPage.ge' | translate}} <span
+                        class="ion-float-right">{{'singleDetailsOfPage.cod' | translate}}</span></h4>
+                <h4 *ngIf="item?.payment_type !== 'LOCAL'">{{'singleDetailsOfPage.ge' | translate}} <span
+                        class="ion-float-right">{{item?.payment_type}}</span></h4>
+            </ion-col>
+        </ion-row>
+        <div class="qr_div" *ngIf="item?.order_child">
+            <ion-button class="qr_btn" expand="block" (click)="qrcode()">{{'singleDetailsOfPage.btn' | translate}}</ion-button>
+        </div>
+    </div>
+</ion-content>

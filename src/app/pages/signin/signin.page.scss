@@ -1,0 +1,74 @@
+ion-header {
+    box-shadow: 2px -2px 9px 0px #444444;
+}
+
+ion-toolbar {
+    ion-icon {
+        font-size: 28px;
+    }
+    ion-text {
+        color: var(--black-color);
+        font-size: 14px;
+    }
+}
+
+.h1 {
+    font-size: 35px;
+    color: var(--black-color);
+    font-family: 'eco-medium';
+    margin-top: 58px;
+}
+
+.simple-text {
+    font-size: 16px;
+    color: var(--black-color);
+}
+
+.btn1 {
+    margin: 20px !important;
+    ion-button {
+        background-color: var(--ion-back-color);
+        font-family: 'eco-medium';
+        font-size: 18px;
+        height: 44px;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+}
+
+ion-input {
+    --placeholder: var(--filter-color);
+    --placeholder-opacity: 0.5;
+    font-family: 'eco-medium';
+    color: var(--black-color);
+    --padding-top: 7px;
+    --padding-bottom: 5px;
+    font-size: 18px;
+    border-bottom: 0.5px solid #e3e3e3;
+}
+
+ion-label {
+    font-size: 14px;
+    font-family: 'eco-medium';
+}
+
+.btn2 {
+    ion-button {
+        background-color: var(--fb-btn-color);
+        font-family: 'eco-medium';
+        font-size: 18px;
+        height: 44px;
+        border-radius: 5px;
+    }
+    i {
+        color: white;
+    }
+}
+
+.copyright-text {
+    font-size: 12px;
+    color: var(--filter-color);
+    span {
+        color: var(--span-color);
+    }
+}

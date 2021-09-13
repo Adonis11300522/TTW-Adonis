@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-margin-top ion-padding-top" mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/tab5" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end" *ngIf="data?.length > 0">
+            <ion-button (click)="onClick()">
+                <ion-icon name="settings-sharp" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-row class="ion-padding">
+        <ion-col size="12">
+            <h1>{{'notificationCentre.centre' | translate}}</h1>
+        </ion-col>
+    </ion-row>
+    <div class="container" *ngIf="data?.length == 0">
+        <img src="../../../assets/Group 4858.png">
+        <h3>{{'notificationCentre.no' | translate}}</h3>
+        <ion-text class="filter">{{'notificationCentre.recent' | translate}} <br>{{'notificationCentre.other' | translate}}</ion-text>
+    </div>
+
+    <div class="ion-padding">
+        <ion-row *ngFor="let n of data" class="ion-margin-bottom notioi">
+            <ion-col size="2">
+                <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                    [preserveAspectRatio]="true" [img]="n.event_image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                </ngx-progressive-img-loader>
+            </ion-col>
+            <ion-col size="10">
+                <p class="title">{{n?.title}}</p>
+                <p class="message">{{n?.message}}</p>
+                <ion-button *ngIf="lan =='en'" mode="ios" class="right" color="#FF0000">{{n?.updated_at | timeAgo | slice:0:15}}</ion-button>
+                <ion-button *ngIf="lan == 'ar'" mode="ios" class="left" color="#FF0000">{{n?.updated_at | timeAgo | slice:0:15}}</ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

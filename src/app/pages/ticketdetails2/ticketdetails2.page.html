@@ -1,0 +1,110 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-no-padding" mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/ticketDetailss" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'ticketDetailss.name' | translate}}</ion-title>
+    </ion-toolbar> 
+</ion-header>
+<ion-content>
+    <div class="ion-margin-start ion-margin-end ion-margin-top eror" *ngIf="isTrue == true" (click)="next()">
+        <ion-row class="ion-padding-start ion-padding-end ion-padding-top">
+            <ion-col size="2">
+                <img src="../../../assets/Icon awesome-minus-circle.png">
+            </ion-col>
+            <ion-col size="10">
+                {{'ticketDetailss.invalid' | translate}}
+            </ion-col>
+        </ion-row>
+
+    </div>
+
+    <ion-grid class="ion-padding">
+        <ion-row class="ion-no-padding ion-padding-top">
+            <ion-col size="12">
+                <h4>{{item?.event_name}}</h4>
+                <ion-text class="normal">{{item?.name}}</ion-text><br>
+                <span>{{'ticketDetailss.by' | translate}} {{da}}</span>
+
+                <p class="filter">
+                    {{item?.startTime | date : "MMM"}} {{item?.startTime | date : "dd"}} {{item?.startTime | date:"yyyy"}} {{item?.startTime | date :"hh:mm a"}} - <br> {{item?.endTime | date : "MMM"}} {{item?.endTime | date : "dd"}} {{item?.endTime |
+                    date:"yyyy"}} {{item?.endTime | date :"hh:mm a"}}
+                </p>
+            </ion-col>
+        </ion-row>
+
+        <hr>
+
+        <ion-row class="ion-no-padding ion-margin-bottom">
+            <ion-col size="12">
+                <img src="../../../assets/Group 485.png">
+                <div class="ion-padding top ion-text-justify">
+                    <ion-label>{{'ticketDetailss.price' | translate}} : </ion-label>
+                    <ion-text class="filter" *ngIf="item?.type == 'free'">{{'ticketDetailss.fre' | translate}}</ion-text>
+                    <ion-text class="filter" *ngIf="item?.type == 'paid'">{{currency}} {{item?.price}}</ion-text><br>
+                    <ion-label>{{'ticketDetailss.qty' | translate}} : </ion-label>
+                    <ion-text class="filter" *ngIf="item?.sold_out === false">{{item?.quantity - item?.use_ticket}}</ion-text>
+                    <ion-text class="filter" *ngIf="item?.sold_out === true">{{'ticketDetailss.sold' | translate}}</ion-text><br>
+                    <ion-label>{{'ticketDetailss.tie' | translate}} : </ion-label>
+                    <ion-text class="filter">{{item?.startTime | date:"hh:mm a"}} {{'ticketDetailss.to' | translate}} {{item?.endTime | date : "hh:mm a"}}</ion-text>
+                    <br>
+                    <div class="ion-padding-top">
+                        <ion-row class="row">
+                            <ion-col size="7" class="frr">
+                                {{'ticketDetailss.how' | translate}}
+                            </ion-col>
+                            <ion-col size="1.6">
+                                <ion-buttons class="re" mode="md" (click)="onClick2()">
+                                    <ion-button>
+                                        <ion-icon slot="icon-only" name="remove"></ion-icon>
+                                    </ion-button>
+                                </ion-buttons>
+                            </ion-col>
+                            <ion-col size="1.6" class="ion-text-center">
+                                <ion-buttons class="qty" mode="md">
+                                    {{qty}}
+                                </ion-buttons>
+                            </ion-col>
+                            <ion-col size="1.6">
+                                <ion-buttons class="addr" mode="md" (click)="onClick()">
+                                    <ion-button>
+                                        <ion-icon slot="icon-only" name="add"></ion-icon>
+                                    </ion-button>
+                                </ion-buttons>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+
+
+        <div class="coupon_div" (click)="coupon()" *ngIf="!coupons">
+            <p class="ion-float-left">{{'ticketDetailss.you' | translate}}
+                <span class="ion-float-right">{{'ticketDetailss.now' | translate}}</span>
+            </p>
+        </div>
+        <div *ngIf="coupons">
+            <ion-row class="ion-padding-start ion-padding-end ion-margin-top" *ngIf="item?.price != 0">
+                <ion-col size="12" class="ion-no-padding">
+                    <div class="coupencode">
+                        <ion-row>
+                            <ion-col size="12" class="ion-no-padding ion-no-margin">
+                                <ion-input value="{{coupons?.coupon_code}}" readonly></ion-input>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+        <h1 *ngIf="discount">{{'ticketDetailss.dis' | translate}} <span class="ion-float-right">{{currency}} {{discount}}</span></h1>
+        <p class="tax ion-padding-start ion-padding-end" *ngFor="let item of dataOfCoupon">{{item?.name}}<span class="ion-float-right">{{currency}}{{item?.price}}</span></p>
+    </ion-grid>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar class="ion-no-padding">
+        <ion-button expand="full" *ngIf="item?.price !== 0" color="var(--ion-back-color)" (click)="nextPay()">{{'ticketDetailss.p' | translate}} {{currency}} {{finalTotal}}</ion-button>
+        <ion-button expand="full" *ngIf="item?.price == 0" color="var(--ion-back-color)" (click)="nextPay()">{{'ticketDetailss.freBook' | translate}}</ion-button>
+    </ion-toolbar>
+</ion-footer>

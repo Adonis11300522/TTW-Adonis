@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" mode="md" (click)="goNext()">
+            <ion-button>
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true" class="ion-padding">
+    <ion-grid class="ion-no-padding">
+        <ion-row class="ion-margin-bottom">
+            <ion-col size="12" class="ion-padding-top">
+                <div class="margin-top">
+                    <ion-text class="h1">{{'followpage.title' | translate}}<br> {{'followpage.going' | translate}}
+                    </ion-text><br>
+                </div>
+                <ion-text class="simple-text">{{'followpage.best' | translate}}<br>{{'followpage.loca' | translate}}</ion-text>
+            </ion-col>
+        </ion-row>
+
+        <ion-item *ngFor="let item of data">
+            <ion-avatar>
+                <img src="{{item?.imagePath}}" alt="">
+            </ion-avatar>
+            <ion-label>
+                <h1>{{item?.first_name}} {{item?.last_name}}</h1>
+            </ion-label>
+            <ion-button fill="clear" [class.active]="item?.isFollow == 1" class="non" slot="end" *ngIf="item?.isFollow == 0" (click)="event(item?.id)">
+                {{'followpage.follow'|translate}}
+            </ion-button>
+            <ion-button fill="clear" [class.active]="item?.isFollow == 1" class="non" slot="end" *ngIf="item?.isFollow == 1" (click)="event(item?.id)">
+                {{'followpage.following' | translate}}
+            </ion-button>
+        </ion-item>
+        <div *ngIf="!data">
+            <ion-item *ngFor="let item of [1,2,3,4]">
+                <ion-avatar>
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <h1>
+                        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                    </h1>
+                </ion-label>
+                <ion-button fill="clear" class="active" slot="end" (click)="event(item?.id)" *ngIf="item?.isFollow == true">
+                    <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                </ion-button>
+                <ion-button fill="clear" class="non" slot="end" (click)="event(item?.id)" *ngIf="item?.isFollow == false">
+                    <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                </ion-button>
+            </ion-item>
+        </div>
+    </ion-grid>
+</ion-content>
+<ion-footer class="ion-no-border" *ngIf="isFrom !== 'profile'">
+    <ion-toolbar class="ion-margin-bottom">
+        <div class="ion-padding-top ion-padding-start ion-padding-end footer">
+            <ion-button mode="md" (click)="goNext()" color="var(--ion-back-color)" expand="full">{{'followpage.btn' | translate}}</ion-button>
+        </div>
+    </ion-toolbar>
+</ion-footer>

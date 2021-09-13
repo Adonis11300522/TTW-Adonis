@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-margin-top" mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/tab5" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <h1 class="ion-padding-start">{{'findFolo.title' | translate}}</h1>
+    <p class="ion-padding-start">{{data?.length}} {{'findFolo.title' | translate}}</p>
+    <ion-item *ngFor="let item of data">
+        <ion-avatar>
+            <img src="{{item?.imagePath}}" alt="">
+        </ion-avatar>
+        <ion-label>
+            <h1>{{item?.first_name}} {{item?.last_name}}</h1>
+        </ion-label>
+        <ion-button fill="clear" class="active" slot="end" (click)="event(item?.id)" *ngIf="item?.isFollow == true">
+            {{'findFolo.title' | translate}}
+        </ion-button>
+        <ion-button fill="clear" class="non" slot="end" (click)="event(item?.id)" *ngIf="item?.isFollow == false">
+            {{'findFolo.follow' | translate}}
+        </ion-button>
+    </ion-item>
+
+    <div *ngIf="!data">
+        <ion-item *ngFor="let item of [1,2,3,4]">
+            <ion-avatar>
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-avatar>
+            <ion-label>
+                <h1>
+                    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                </h1>
+            </ion-label>
+            <ion-button fill="clear" class="active" slot="end" (click)="event(item?.id)" *ngIf="item?.isFollow == true">
+                <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            </ion-button>
+            <ion-button fill="clear" class="non" slot="end" (click)="event(item?.id)" *ngIf="item?.isFollow == false">
+                <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            </ion-button>
+        </ion-item>
+    </div>
+
+
+    <div class="ion-text-center" *ngIf="data?.length == 0" no-data>
+        <img src="../../../assets/no-data.png" alt="">
+    </div>
+</ion-content>

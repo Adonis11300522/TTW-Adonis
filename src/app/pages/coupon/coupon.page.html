@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-no-padding">
+        <ion-title class="ion-text-center">{{'coupons.title' | translate}}</ion-title>
+        <ion-buttons mode="md" slot="start">
+            <ion-button (click)="close()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div>
+        <ion-row>
+            <ion-col size="6" (click)="checkId(item)" *ngFor="let item of data;let i = index" [ngClass]="{
+              'right-padding': i % 2 == 0,
+              'left-padding': i % 2 != 0
+              }" class="ion-no-padding ion-margin-bottom">
+                <article class="ticket">
+                    <footer class="ticket__wrapper">
+                        <div class="ticket__header">
+                            <h1>{{item?.discount}}<span *ngIf="item?.discount?.length > 2">..</span> %
+                            </h1>
+                        </div>
+                        <div>
+                            <p>{{'coupons.upto' | translate}} <span>{{item?.end_date | date: 'dd-MM-yyyy'}}</span></p><br>
+                        </div>
+                    </footer>
+                    <div class="ticket__divider">
+                        <div class="ticket__notch"></div>
+                        <div class="ticket__notch ticket__notch--right"></div>
+                    </div>
+                    <div class="ticket__body">
+                        <section class="ticket__section">
+                            <div class="code">
+                                {{item?.coupon_code}}
+                            </div>
+                        </section>
+                    </div>
+                </article>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

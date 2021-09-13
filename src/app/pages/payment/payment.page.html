@@ -1,0 +1,78 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-no-padding" mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/ticketdetails2" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'payment.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <div class="deails_div ion-padding">
+        <ion-item *ngFor="let p of payment_div" mode="md" (click)="item(p.name)" class="ion-no-padding" button lines="none">
+            <img *ngIf="p.img" src="{{p.img}}">
+            <p>{{p.name}}</p>
+            <img *ngIf="select != p.name" slot="end" src="../../../assets/payment/Ellipse 42.png">
+            <img *ngIf="select == p.name" slot="end" src="../../../assets/payment/checl.svg">
+        </ion-item>
+    </div>
+
+    <ngx-paypal *ngIf=" select=='Paypal'" [config]="payPalConfig "></ngx-paypal>
+
+    <div *ngIf="select=='Stripe'">
+        <div class="card_div ion-margin-horizontal ">
+            <div class="border_bottom "></div>
+            <ion-label class="card_label ">
+                {{'payment.card' | translate}}
+            </ion-label>
+            <ion-item lines="none " mode="md ">
+                <ion-input name="number " [(ngModel)]="stripeData.number " class="card_num ">
+                </ion-input>
+                <img slot="end " src="../../../assets/images/visa.png ">
+            </ion-item>
+            <ion-row>
+                <ion-col class="ion-no-padding " size="6 ">
+                    <ion-label class="card_label ">
+                        {{'payment.expire' | translate}}
+                    </ion-label>
+                    <ion-item lines="none " mode="md ">
+                        <ion-input class="card_num " name="expMonth " [(ngModel)]="stripeData.expMonth ">
+                        </ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col class="ion-no-padding " size="5 " offset="1 ">
+                    <ion-label class="card_label ">
+                        {{'payment.expireYear' | translate}}
+                    </ion-label>
+                    <ion-item lines="none " mode="md ">
+                        <ion-input class="card_num " name="expYear " [(ngModel)]="stripeData.expYear ">
+                        </ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-no-padding " size="12 ">
+                    <ion-label class="card_label ">
+                        {{'payment.cvv' | translate}}
+                    </ion-label>
+                    <ion-item lines="none " mode="md ">
+                        <ion-input type="password " name="cvc " [(ngModel)]="stripeData.cvc " class="card_num ">
+                        </ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </div>
+    </div>
+</ion-content>
+
+
+
+<ion-footer class="ion-no-border ">
+    <ion-toolbar class="ion-no-padding ">
+        <div class="ion-padding-start ion-padding-end btn-last">
+            <ion-button [disabled]="checkbtn==true " expand="full " (click)="done() " class="btn " color="var(--ion-back-color) ">
+                {{'payment.proced' | translate}}
+            </ion-button>
+        </div>
+    </ion-toolbar>
+</ion-footer>

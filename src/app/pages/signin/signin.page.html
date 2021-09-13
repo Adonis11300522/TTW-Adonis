@@ -1,0 +1,41 @@
+<ion-header *ngIf="isFrom !== 'other'">
+    <ion-toolbar style="padding: 5px;">
+        <ion-buttons slot="start" mode="md">
+            <ion-button (click)="gotab()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" mode="md">
+            <ion-button fill="clear" (click)="gotab()">
+                <ion-text slot="end">{{'signin.skip' | translate}}</ion-text>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <br><br><br>
+    <div class="ion-margin-top ion-padding ion-text-center">
+        <h1 class="h1 ion-margin-top ion-padding-top">{{'signin.signin' | translate}}</h1><br>
+    </div>
+    <ion-list lines="inset" class="ion-margin ion-padding">
+        <div class="ion-padding-bottom">
+            <ion-label>{{'signin.email' | translate}}</ion-label><br>
+            <ion-input type="emal" required="true" [(ngModel)]="email" placeholder="{{'signin.emailPlace' | translate}}"></ion-input>
+        </div>
+        <p err class="ion-margin-bottom ion-no-margin" *ngIf="err?.email">{{err?.email}}</p>
+        <div class="ion-padding-bottom">
+            <ion-label>{{'signin.pass' | translate}}</ion-label><br>
+            <ion-input required="true" type="password" [(ngModel)]="password" placeholder="{{'signin.passPlace' | translate}}"></ion-input>
+        </div> 
+        <p err class="ion-no-margin" *ngIf="err?.password">{{err?.password}}</p>
+    </ion-list>
+    <div class="btn1 ion-padding-bottom">
+        <ion-button mode="md" (click)="goNext()" expand="full" color="var(--ion-back-color)">{{'signin.btn' | translate}}</ion-button>
+    </div>
+    <div class="ion-text-center">
+        <ion-text class="copyright-text">
+            {{'signin.dontAc' | translate}}
+            <span (click)="goCreate()">{{'signin.btn2' | translate}}</span>
+        </ion-text>
+    </div>
+</ion-content>

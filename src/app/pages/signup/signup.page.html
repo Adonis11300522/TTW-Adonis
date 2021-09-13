@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar style="padding: 5px;">
+        <ion-buttons slot="start">
+            <ion-button (click)="gotab()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid class="ion-no-padding">
+        <div class="ion-margin-top ion-margin-bottom ion-padding">
+            <ion-text class="h1">{{'signup.lets' | translate}}</ion-text><br>
+            <ion-text class="simple-text">{{'signup.signin' | translate}}</ion-text>
+        </div>
+        <div class="ion-padding ion-margin-top ion-margin-bottom">
+            <ion-list lines="inset" class="ion-no-margin ion-no-padding">
+                <div class="ion-padding-bottom">
+                    <ion-label>{{'signup.email' | translate}}</ion-label><br>
+                    <ion-input [(ngModel)]="email" placeholder="{{'signup.emailPlace' | translate}}"></ion-input>
+                </div>
+                <p class="ion-margin-bottom ion-no-margin" err *ngIf="err?.email">{{err?.email}}</p>
+                <div class="ion-padding-bottom">
+                    <ion-label>{{'signup.name' | translate}}</ion-label><br>
+                    <ion-input [(ngModel)]="firstname" placeholder="{{'signup.namePlace' | translate}}"></ion-input>
+                </div>
+                <p class="ion-margin-bottom ion-no-margin" err *ngIf="err?.first_name">{{err?.first_name}}</p>
+                <div class="ion-padding-bottom">
+                    <ion-label>{{'signup.lastName' | translate}}</ion-label><br>
+                    <ion-input [(ngModel)]="lastname" placeholder="{{'signup.lastNamePlace' | translate}}"></ion-input>
+                </div>
+                <p class="ion-margin-bottom ion-no-margin" err *ngIf="err?.last_name">{{err?.last_name}}</p>
+                <div class="ion-padding-bottom">
+                    <ion-label>{{'signup.pass' | translate}}</ion-label><br>
+                    <ion-input type="password" [(ngModel)]="password" placeholder="{{'signup.passPlace' | translate}}"></ion-input>
+                </div>
+                <p class="ion-no-margin" err *ngIf="err?.password">{{err?.password}}</p>
+                <div class="ion-padding-bottom">
+                    <ion-label>{{'signup.phone' | translate}}</ion-label><br>
+                    <ion-input [(ngModel)]="phone" placeholder="{{'signup.phonePlace' | translate}}" type="tel"></ion-input>
+                </div>
+                <p class="ion-margin-bottom ion-no-margin" err *ngIf="err?.last_name">{{err?.phone}}</p>
+            </ion-list>
+        </div>
+        <div class="ion-padding ion-margin-top">
+            <ion-button mode="ios" (click)="goNext()" expand="full " color="var(--ion-back-color) ">{{'signup.btnMai' | translate}}</ion-button>
+        </div>
+    </ion-grid>
+</ion-content>

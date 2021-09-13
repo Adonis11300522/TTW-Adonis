@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-padding">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{'ticketqrcode.title' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let item of orderData">
+    <ion-card class="ticket_card" *ngIf="item?.status == 0">
+      <div class="ticket_detail">
+        <img src="../../../assets/Group 4859.png" class="ticket_img">
+        <p class="ticket_label">{{'ticketqrcode.ticket_number' | translate}}</p>
+      </div>
+      <p class="qr_tag">{{item?.ticket_number}}</p>
+      <ng-container>
+        <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="item.ticket_number"
+          class="bshadow">
+        </ngx-qrcode>
+      </ng-container> 
+    </ion-card>
+
+    <ion-card class="ticket_card" *ngIf="item?.status == 1">
+      <div class="ticket_detail">
+        <img src="../../../assets/Group 4859.png" class="ticket_img">
+        <p class="ticket_label">{{'ticketqrcode.ticket_number' | translate}}</p>
+      </div>
+      <p class="qr_tag">{{item?.ticket_number}}</p>
+      <div class="img_div">
+        <img src="../../../assets/images/scd1.png" class="scanne_img">
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

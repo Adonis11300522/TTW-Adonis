@@ -1,0 +1,156 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar style="padding-left: 5px;" class="ion-padding-top">
+        <ion-icon (click)="goBack()" name="chevron-back"></ion-icon>
+
+        <ion-item *ngIf="address !== ''" lines="none" class="ion-padding-end">
+            <ion-icon name="location-sharp"></ion-icon>&nbsp;&nbsp;&nbsp;
+            <ion-text>{{'searchresult.in'|translate}} {{address}} </ion-text> &nbsp;&nbsp;
+        </ion-item>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid class="ion-no-padding">
+        <ion-row class="ion-padding-end ion-padding-top">
+            <ion-col size="12">
+                <ion-item>
+                    <ion-input [(ngModel)]="term" placeholder="{{'searchresult.placeholder' | translate}}"></ion-input>
+                    <ion-icon slot="end" name="search-outline"></ion-icon>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <div class="ion-padding-start ion-padding-end ion-padding-top scrollcontainer">
+            <ion-chip [ngClass]="active == 'All' ? 'active' : 'ion-chip'" (click)="all()">
+                <ion-label>
+                    {{'searchresult.all' | translate}}
+                </ion-label>
+            </ion-chip>
+            <ion-chip *ngFor="let item of cateGory " [ngClass]="item?.name == active ? 'active' : 'ion-chip'" (click)="cateReq(item)">
+                <ion-label>{{item?.name}}</ion-label>
+            </ion-chip>
+        </div>
+        <ion-item class="ion-no-padding to" lines="none" *ngIf="active !== 'All'">
+            <ion-label>{{'searchresult.freeEvent' | translate}}</ion-label>
+            <ion-toggle mode="md" slot="end" [(ngModel)]="n" (ionChange)="event($event)"></ion-toggle>
+        </ion-item>
+        <ion-row class="ion-padding-start ion-padding-end ion-padding-top">
+            <ion-col size="12">
+                <h5 [class.right]="lan == 'ar'">{{data?.length}} {{'searchresult.event' | translate}}</h5>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div class="ion-padding-start ion-padding-end item div">
+        <div *ngIf="lan=='ar'">
+            <ion-item *ngFor="let item of data | filter:term" button mode="md">
+                <ion-thumbnail (click)="goList(item?.id)" class="thuu">
+                    <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                        [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                    </ngx-progressive-img-loader>
+                </ion-thumbnail>
+                <ion-label>
+                    <h1 (click)="goList(item?.id)" class="ion-text-capitalize">{{item?.name}}</h1>
+                    <p (click)="goList(item?.id)" class="p1">{{item?.time}}</p>
+                    <h6 (click)="goList(item?.id)">{{item?.description | slice:0:20}}
+                    </h6>
+                </ion-label>
+                <ion-buttons class="heart_red" *ngIf="lan == 'en'">
+                    <ion-button (click)="socialSharing(item)">
+                        <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+
+
+                <ion-buttons class="heart_redAr" *ngIf="lan == 'ar'">
+                    <ion-button (click)="socialSharing(item)">
+                        <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+
+                <div *ngIf="lan == 'en'">
+                    <ion-buttons class="heart_sec" (click)="like(item?.id)" *ngIf="item?.isLike == false">
+                        <ion-button>
+                            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+
+                    <ion-buttons class="heart_sec" (click)="like(item?.id)" *ngIf="item?.isLike == true">
+                        <ion-button>
+                            <ion-icon slot="icon-only" class="active" name="heart"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+                <div *ngIf="lan == 'ar'">
+                    <ion-buttons class="heart_sec2" (click)="like(item?.id)" *ngIf="item?.isLike == false">
+                        <ion-button>
+                            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+
+                    <ion-buttons class="heart_sec2" (click)="like(item?.id)" *ngIf="item?.isLike == true">
+                        <ion-button>
+                            <ion-icon slot="icon-only" class="active" name="heart"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </ion-item>
+        </div>
+        <div *ngIf="lan=='en'">
+            <ion-item *ngFor="let item of data | filter:term" button mode="md">
+                <ion-thumbnail (click)="goList(item?.id)">
+                    <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                        [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                    </ngx-progressive-img-loader>
+                </ion-thumbnail>
+                <ion-label>
+                    <h1 (click)="goList(item?.id)" class="ion-text-capitalize">{{item?.name}}</h1>
+                    <p (click)="goList(item?.id)" class="p1">{{item?.time}}</p>
+                    <h6 (click)="goList(item?.id)">{{item?.description | slice:0:20}}
+                    </h6>
+                </ion-label>
+                <ion-buttons class="heart_red" *ngIf="lan == 'en'">
+                    <ion-button (click)="socialSharing(item)">
+                        <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+
+
+                <ion-buttons class="heart_redAr" *ngIf="lan == 'ar'">
+                    <ion-button (click)="socialSharing(item)">
+                        <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+
+                <div *ngIf="lan == 'en'">
+                    <ion-buttons class="heart_sec" (click)="like(item?.id)" *ngIf="item?.isLike == false">
+                        <ion-button>
+                            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+
+                    <ion-buttons class="heart_sec" (click)="like(item?.id)" *ngIf="item?.isLike == true">
+                        <ion-button>
+                            <ion-icon slot="icon-only" class="active" name="heart"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+                <div *ngIf="lan == 'ar'">
+                    <ion-buttons class="heart_sec2" (click)="like(item?.id)" *ngIf="item?.isLike == false">
+                        <ion-button>
+                            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+
+                    <ion-buttons class="heart_sec2" (click)="like(item?.id)" *ngIf="item?.isLike == true">
+                        <ion-button>
+                            <ion-icon slot="icon-only" class="active" name="heart"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </ion-item>
+        </div>
+    </div>
+
+    <div no-data class="ion-text-center" *ngIf="data?.length == 0">
+        <img src="../../../assets/no-data.png" alt="">
+    </div>
+</ion-content>

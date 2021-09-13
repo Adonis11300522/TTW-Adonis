@@ -1,0 +1,92 @@
+ion-toolbar {
+    --background: var(--ion-back-color);
+    color: white;
+    --min-height: 74px;
+
+    ion-title {
+        font-family: 'eco-medium';
+        text-transform: capitalize;
+        font-size: 24px;
+    }
+}
+
+.rows {
+    margin-top: -10px;
+}
+
+ion-row {
+    ion-col {
+        img {
+            border-radius: 10px;
+            height: 70px;
+            width: 70px;
+        }
+
+        h3 {
+            margin: 0px;
+            font-family: 'eco-medium';
+            font-size: 18px;
+        }
+
+        p {
+            margin-top: 5px;
+            color: var(--filter-color);
+            margin-bottom: 3px;
+            font-family: 'eco-medium';
+        }
+
+        h4 {
+            font-family: "eco-medium";
+            font-size: 17px;
+            color: black;
+            margin-top: 6px;
+            margin-bottom: 8px;
+
+            span {
+                color: var(--filter-color);
+                font-family: 'eco-medium';
+            }
+        }
+
+        hr {
+            height: 0px;
+            border: 0.1px solid #dddddd;
+            margin-top: 8px;
+        }
+    }
+
+    .rate {
+        color: var(--ion-back-color);
+        font-size: 18px;
+    }
+
+    .active {
+        color: var(--filter-color);
+        font-size: 18px;
+    }
+}
+.qr_div {
+    text-align: center;
+    overflow: hidden;
+    margin: 18px 20px 18px 20px 
+}
+
+.qr_btn {
+    --background: var(--ion-back-color);
+    color: white;
+    font-size: 18px;
+    height: 50px;
+    font-family: 'eco-medium';
+}
+
+
+ion-button {
+    font-family: eco-medium;
+    text-transform: capitalize;
+    font-size: 15px;
+    margin-left: -18px;
+    padding-left: 0px;
+    text-align: left;
+    margin-top: -4px;
+    margin-bottom: -5px;
+}

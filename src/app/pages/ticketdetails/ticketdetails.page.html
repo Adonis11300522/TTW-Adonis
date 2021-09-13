@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md"> 
+        <ion-buttons slot="start">
+            <ion-button (click)="goBack()">
+                <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'ticketDetailss.name' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <ion-grid class="ion-no-padding">
+        <ion-row class="ion-no-padding">
+            <ion-col size="12">
+                <h2 class="ion-text-capitalize"> {{data?.event_name}}</h2>
+                <ion-text class="tx">{{'ticketDetailss.by' | translate}} {{da}}</ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-no-padding ion-margin-bottom" *ngFor="let item of data?.ticket" (click)="next(item)">
+            <ion-col size="12">
+                <img src="../../../assets/Group 485.png">
+                <div class="ion-padding top ion-text-justify">
+                    <ion-label>{{'ticketDetailss.type' | translate}} : </ion-label>
+                    <ion-text class="filter">{{item?.name}}</ion-text>&nbsp;&nbsp;<br>
+                    <ion-label>{{'ticketDetailss.price' | translate}} : </ion-label>
+                    <ion-text class="filter" *ngIf="item?.type == 'free'">{{'ticketDetailss.fre' | translate}}</ion-text>
+                    <ion-text class="filter" *ngIf="item?.type == 'paid'">{{currency}} {{item?.price}}</ion-text><br>
+                    <ion-label>{{'ticketDetailss.qty' | translate}} : </ion-label>
+                    <ion-text class="filter" *ngIf="item?.sold_out === false">{{item?.quantity - item?.use_ticket}}</ion-text>
+                    <ion-text class="filter" *ngIf="item?.sold_out === true">{{'ticketDetailss.sold' | translate}}</ion-text><br>
+                    <ion-label>{{'ticketDetailss.tie' | translate}} : </ion-label>
+                    <ion-text class="filter">{{item?.startTime | date:"hh:mm a"}} {{'ticketDetailss.to' | translate}} {{item?.endTime | date : "hh:mm a"}}</ion-text>
+                    <br>
+                    <div class="ion-padding-top">
+                        <ion-text class="smallfilter">
+                            {{item?.description | slice:0:90}}
+                        </ion-text>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <div class="ion-text-center" no-data *ngIf="data?.ticket?.length == 0">
+            <img src="../../../assets/no-data.png" alt="">
+        </div>
+    </ion-grid>
+</ion-content>

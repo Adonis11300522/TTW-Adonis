@@ -1,0 +1,185 @@
+ion-header {
+    box-shadow: 2px -2px 9px 0px #444444;
+}
+
+ion-toolbar {
+    --min-height: 70px;
+    ion-icon {
+        font-size: 25px;
+    }
+}
+
+ion-content {
+    --background: #f9f9f9;
+    ion-label {
+        font-family: eco-medium;
+    }
+    .add {
+        margin: 0px;
+        padding: 0px;
+        border: 1px solid var(--filter-color);
+        border-radius: 50%;
+        height: 24px;
+        margin-right: 15px;
+        width: 24px;
+        ion-icon {
+            margin-left: -5px;
+            font-size: 18px;
+            margin-top: -1px;
+            color: black;
+        }
+    }
+    .qty {
+        padding: 0px;
+        margin: 0px;
+        font-family: eco-medium;
+        font-weight: bold;
+    }
+    .minus {
+        padding: 0px;
+        margin: 0px;
+        margin: 0px;
+        padding: 0px;
+        border: 1px solid var(--filter-color);
+        border-radius: 50%;
+        height: 24px;
+        margin-left: 15px;
+        width: 24px;
+        ion-icon {
+            margin-left: -5px;
+            font-size: 18px;
+            margin-top: -1px;
+            color: black;
+        }
+    }
+    .top {
+        position: relative;
+        top: 1%;
+        .row {
+            margin-top: 10px;
+            .frr {
+                font-family: eco-medium;
+                color: black;
+                padding-top: 6px;
+            }
+        }
+        .qty {
+            margin-left: 18px !important;
+            margin-top: 8px !important;
+            font-size: 20px !important;
+            font-weight: bold !important;
+            font-family: 'eco-bold' !important;
+            color: var(--filter-color) !important;
+        }
+        .addr {
+            height: 32px !important;
+            width: 32px !important;
+            background: var(--ion-back-color) !important;
+            border-radius: 50% !important;
+            color: white !important;
+            margin-left: 5px !important;
+            margin-top: 5px !important;
+            ion-button {
+                margin-left: -8px !important;
+                font-weight: bold !important;
+                margin-top: -2px !important;
+            }
+        }
+        .re {
+            height: 32px;
+            width: 32px;
+            background: var(--ion-back-color);
+            border-radius: 50%;
+            color: white;
+            margin-left: 14px;
+            margin-top: 5px;
+            ion-button {
+                margin-left: -8px;
+            }
+        }
+    }
+}
+
+.deails_div {
+    padding-top: 8px;
+    padding-bottom: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    ion-item {
+        --background: #FFFFFF;
+        --inner-padding-end: 0px;
+        --padding-start: 18px;
+        margin-bottom: 17px !important;
+        --padding-end: 18px;
+        --border-radius: 20px;
+        --inner-padding-top: 20px;
+        --inner-padding-bottom: 20px;
+        box-shadow: 0px 0px 20px 1px #eeeeee;
+        --ripple-color: var(--ion-back-color);
+        p {
+            font-size: 15px;
+            font-family: eco-medium;
+            margin-left: 13px;
+            margin-right: 13px;
+        }
+        img {
+            object-fit: scale-down;
+            height: 20px;
+            width: 24px;
+        }
+    }
+}
+
+.btn-last {
+    margin-right: 6px;
+}
+
+.btn {
+    height: 44px;
+    background-color: var(--ion-back-color);
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: eco-medium;
+    box-shadow: 0px 0px 20px 1px #dddddd;
+    overflow: hidden;
+    width: 100%;
+    text-transform: capitalize;
+}
+
+.card_div {
+    margin-left: 32px;
+    margin-right: 34px;
+    .btn_lbl {
+        margin-bottom: 16px;
+        font-family: eco-regular;
+        color: var(--theme-color);
+        .add_btn {
+            --color: #3171e0;
+            text-transform: capitalize;
+            font-family: eco-regular;
+            font-size: 18px;
+            height: 20px;
+        }
+    }
+    ion-item {
+        border: 0;
+        border-radius: 5px;
+        margin: 5px 0px 16px 0px;
+        padding: 0px;
+        box-shadow: 3px 1px 17px 1px #EEEEED;
+        font-family: 'eco-bold';
+        font-size: 34px;
+        .card_num {
+            font-size: 14px;
+            color: var(--theme-color);
+            font-family: eco-regular;
+            border: none;
+        }
+    }
+    .card_label {
+        font-family: eco-medium;
+        font-size: 10px;
+        color: #1492E6;
+        margin-bottom: 3px;
+    }
+}

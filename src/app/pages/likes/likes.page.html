@@ -1,0 +1,57 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="ion-no-padding">
+        <ion-title class="ion-text-center">{{'likes.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col size="12">
+                <h6>{{data?.length}} {{'likes.title' | translate}}</h6>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="ion-no-padding div">
+        <ion-item *ngFor="let item of data" button mode="md">
+            <ion-thumbnail>
+                <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                    [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                </ngx-progressive-img-loader>
+            </ion-thumbnail>
+            <ion-label>
+                <h1 class="ion-text-capitalize">{{item?.name | slice:0:23}}<span *ngIf="item?.name?.length > 23">...</span></h1>
+                <p class="p1">{{item?.time}}</p>
+                <h6 *ngIf="lan == 'en'">{{item?.description | slice:0:30}} <span *ngIf="item?.description?.length > 30">...</span>
+                    <ion-icon class="name2" name="heart"></ion-icon>
+                </h6>
+                <h6 *ngIf="lan == 'ar'">{{item?.description | slice:0:30}} <span *ngIf="item?.description?.length > 30">...</span>
+                    <ion-icon class="name3" name="heart"></ion-icon>
+                </h6>
+            </ion-label>
+        </ion-item> 
+    </div>
+
+    <div class="ion-padding-start ion-padding-end" *ngIf="!data">
+        <ion-item *ngFor="let item of [1,2,3,4,5]" button mode="md">
+            <ion-thumbnail>
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+            <ion-label>
+                <h1 class="ion-text-capitalize">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </h1>
+                <p class="p1">
+                    <ion-skeleton-text animated style="width: 70%;"></ion-skeleton-text>
+                </p>
+                <h6>
+                    <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+                </h6>
+            </ion-label>
+        </ion-item>
+    </div>
+
+    <div class="ion-text-center" no-data *ngIf="data?.length == 0">
+        <img src="../../../assets/no-data.png" alt="">
+    </div>
+</ion-content>

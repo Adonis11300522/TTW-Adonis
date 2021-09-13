@@ -1,0 +1,47 @@
+ion-toolbar {
+    --background: var(--ion-back-color);
+    --padding-top: 20px;
+    --min-height: 70px;
+    ion-title {
+        margin-top: 5px;
+        font-size: 20px;
+        --color: white;
+        font-family: 'eco-medium';
+    }
+}
+
+ion-header {
+    box-shadow: 2px -2px 9px 0px #444444;
+}
+
+ion-label {
+    font-family: 'eco-medium';
+}
+
+ion-input {
+    padding: 10px;
+    --placeholder-opacity: 1;
+    margin-top: 4px;
+    color: var(--filter-color);
+    font-family: 'eco-medium';
+    opacity: 0.7;
+}
+
+hr {
+    border: 0.1px solid var(--filter-color);
+    opacity: 0.1;
+}
+
+ion-textarea {
+    margin-top: 5px;
+    border: 0.5px solid #bbbbbb;
+    opacity: 0.3;
+    border-radius: 7px;
+}
+
+ion-button {
+    background-color: var(--ion-back-color);
+    border-radius: 7px;
+    color: white;
+    height: 44px;
+}

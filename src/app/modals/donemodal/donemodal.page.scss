@@ -1,0 +1,25 @@
+ion-toolbar {
+    --background: var(--ion-back-color);
+    ion-text {
+        color: white !important;
+        font-size: 18px;
+    }
+    padding-right: 20px;
+}
+
+p {
+    font-size: 12px;
+    font-family: 'eco-medium';
+    color: var(--filter-color);
+}
+
+.active {
+    font-size: 18px;
+    font-family: "eco-medium";
+    color: var(--fill-color);
+    border-top: 2px solid #dddddd;
+    border-bottom: 2px solid #dddddd;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-weight: bold;
+}

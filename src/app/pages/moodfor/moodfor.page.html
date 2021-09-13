@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/tab2" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row class="ion-padding-start ion-padding-end ion-padding-top">
+            <ion-col size="12" class="ion-padding-start ion-padding-end">
+                <div class="ion-text-center">
+                    <h1>{{'moodfor.goOut' | translate}}</h1>
+                    <div class="ion-text-center ion-margin-top ion-padding-top">
+                        <h5 [class.active]="select == 'All'">{{'moodfor.all' | translate}}</h5>
+                        <h5 [class.active]="h.name == select" *ngFor="let h of data" (click)="event(h)">{{h.name}}</h5>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar class="ion-padding">
+        <ion-button mode="md" (click)="goN()" expand="full" color="var(--ion-back-color)">
+            {{'moodfor.btn' | translate}}
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

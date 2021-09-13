@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start" class="back">
+            <ion-back-button defaultHref="/ticketshow" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'reportEvent2.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <ion-grid class="ion-no-padding">
+        <ion-row class="ion-padding-top">
+            <ion-col size="12">
+                <div class="ion-padding-top">
+                    <ion-label>{{'reportEvent2.email' | translate}}</ion-label>
+                    <ion-input placeholder="{{'reportEvent2.emailPlace' | translate}}" type="email" [(ngModel)]="email" class="ion-no-padding"></ion-input>
+                    <hr>
+                </div>
+                <p err *ngIf="err?.email">{{err?.email}}</p>
+                <div *ngIf="selectTest == ''" class="ion-padding-top" (click)="presentModal()">
+                    <ion-label>{{'reportEvent2.reason' | translate}}</ion-label>
+                    <ion-input placeholder="{{'reportEvent2.reportPlace' | translate}}" class="ion-no-padding" readonly="true"></ion-input>
+                    <hr>
+                </div>
+                <div class="ion-padding-top" *ngIf="selectTest !== ''" (click)="presentModal()">
+                    <ion-label>{{'reportEvent2.reason' | translate}}</ion-label>
+                    <ion-input placeholder="{{'reportEvent2.reportPlace' | translate}}" value="{{selectTest}}" class="ion-no-padding" readonly="true"></ion-input>
+                    <hr>
+                </div>
+                <p err *ngIf="err?.reason">{{err?.reason}}</p>
+                <div class="ion-padding-top">
+                    <ion-label>{{'reportEvent2.message' | translate}}</ion-label>
+                    <ion-textarea rows="5" cols="20" [(ngModel)]="message"></ion-textarea>
+                </div>
+                <p err *ngIf="err?.message">{{err?.message}}</p>
+                <br>
+                <ion-button mode="ios" (click)="goNext()" class="ion-margin-top" color="#EDF6FB" expand="full">{{'reportEvent2.send' | translate}}</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

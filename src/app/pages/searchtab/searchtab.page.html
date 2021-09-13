@@ -1,0 +1,40 @@
+<ion-content>
+    <ion-header class="ion-no-border">
+        <ion-toolbar class="ion-no-padding">
+            <img src="../../../assets/Untitled-2.png" width="100%">
+            <div class="ion-padding-start ion-padding-end search">
+                <ion-item (click)="goSearchpage()">
+                    <ion-input placeholder="{{'searchTab.place' | translate}}" readonly="true"></ion-input>
+                    <ion-icon name="search-outline" slot="end"></ion-icon>
+                </ion-item>
+            </div>
+        </ion-toolbar>
+    </ion-header>
+    <ion-grid class="ion-no-padding">
+        <ion-row class="ion-padding-top" [class.right]="lan == 'ar'">
+            <ion-col size="12" class="ion-padding-start ion-padding-end">
+                <div>
+                    <ion-label>{{'searchTab.want' | translate}}</ion-label>
+                    <h3 style="margin-top: 6px;" (click)="goNext()">{{go}}</h3>
+                    <hr>
+                </div>
+                <div>
+                    <ion-label>{{'searchTab.and' | translate}}</ion-label>
+                    <h3 style="margin-top: 6px;" (click)="goMood()">{{mood}}</h3>
+                    <hr>
+                </div>
+                <div>
+                    <ion-label>{{'searchTab.searchi' | translate}}</ion-label>
+                    <h3 style="margin-top: 6px;" (click)="search()">{{anywhere}}</h3>
+                    <hr>
+                </div>
+                <br>
+                <ion-row class="ion-no-padding">
+                    <ion-col size="12">
+                        <ion-button (click)="goResult()" class="ion-margin-top" color="var(--ion-back-color)" expand="full">{{'searchTab.findThings' | translate}}</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

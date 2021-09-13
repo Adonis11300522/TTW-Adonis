@@ -1,0 +1,128 @@
+ion-header {
+    box-shadow: 2px -2px 9px 0px #444444;
+    ion-toolbar {
+        padding-top: 5px;
+    }
+}
+
+ion-toolbar {
+    ion-icon {
+        font-size: 28px;
+    }
+    ion-text {
+        color: var(--black-color);
+        font-size: 14px;
+    }
+}
+
+ion-item {
+    margin-bottom: 17px;
+}
+
+.h1 {
+    font-size: 30px;
+    color: var(--black-color);
+    font-family: 'eco-medium';
+}
+
+.simple-text {
+    font-size: 16px;
+    color: var(--filter-color);
+}
+
+.btn1 {
+    height: 35px;
+    width: 103px;
+    color: var(--ion-back-color);
+    border: 1px solid var(--ion-back-color);
+    border-radius: 5px;
+}
+
+.btn {
+    height: 35px;
+    width: 103px;
+    color: var(--black-color);
+    border: 1px solid var(--filter-color);
+    border-radius: 5px;
+}
+
+.tx {
+    font-size: 18px;
+    color: var(--black-color);
+}
+
+.footer {
+    ion-button {
+        background-color: var(--ion-back-color);
+        border-radius: 2px;
+        font-size: 18px;
+    }
+}
+
+ion-item {
+    --inner-padding-end: 0px;
+    --padding-bottom: 5px;
+    ion-label {
+        h1 {
+            font-size: 18px;
+            font-family: 'eco-medium';
+            margin: 0px;
+            padding-left: 11px;
+            padding-right: 11px;
+        }
+    }
+}
+
+hr {
+    border: 0.1px solid var(--filter-color);
+    opacity: 0.1;
+}
+
+ion-text {
+    font-size: 18px;
+    color: var(--black-color);
+}
+
+img {
+    margin-top: -5px;
+}
+
+ion-item {
+    .active {
+        border: 1px solid var(--ion-back-color) !important;
+        color: var(--ion-back-color) !important;
+        font-family: 'eco-medium' !important;
+        font-size: 14px !important;
+        padding: 3px !important;
+        border-radius: 4px !important;
+        text-transform: capitalize !important;
+        height: 35px !important;
+        width: 104px !important;
+    }
+    .non {
+        height: 35px !important;
+        width: 104px !important;
+        border: 1px solid var(--filter-color);
+        color: var(--filter-color);
+        font-family: 'eco-medium';
+        font-size: 14px;
+        padding: 3px;
+        border-radius: 4px;
+        height: 36px;
+        text-transform: capitalize;
+    }
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.footer {
+    ion-button {
+        font-family: eco-medium;
+        overflow: hidden;
+        text-transform: capitalize;
+        height: 44px;
+        border-radius: 7px;
+    }
+}

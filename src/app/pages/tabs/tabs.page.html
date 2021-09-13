@@ -1,0 +1,8 @@
+<ion-tabs>
+    <ion-tab-bar color="#f51929" slot="bottom" class="ion-padding-bottom">
+        <ion-tab-button *ngFor="let t of tabs" tab="{{t.tabName}}">
+            <ion-icon *ngIf="t?.iconName" name="{{t.iconName}}"></ion-icon>
+            <ion-icon *ngIf="t?.iconUrl" src="{{t.iconUrl}}"></ion-icon>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs>

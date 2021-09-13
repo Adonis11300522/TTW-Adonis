@@ -1,0 +1,302 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@font-face {
+    font-family: 'eco-medium';
+    src: url('assets/fonts/Exo-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'eco-regular';
+    src: url('assets/fonts/Exo-Medium.ttf');
+}
+
+.picker-button {
+    font-family: 'eco-medium' !important;
+    color: var(--theme-color) !important;
+    text-transform: capitalize !important;
+    font-weight: bold !important;
+}
+
+.picker-opt-selected {
+    color: var(--theme-color) !important;
+    font-family: 'eco-medium' !important;
+}
+
+@font-face {
+    font-family: "eco-bold";
+    src: url('assets/fonts/Exo-Bold.ttf');
+}
+
+ion-tab-button.tab-selected {
+    ion-icon {
+        color: var(--ion-back-color) !important;
+    }
+}
+
+.back {
+    ion-back-button {
+        color: white !important;
+    }
+}
+
+.ol-viewport .ol-touch {
+    border-radius: 7px;
+}
+
+.action-sheet-group.sc-ion-action-sheet-ios:first-child {
+    margin-top: 10px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    border-radius: 7px !important;
+    margin-bottom: 10px !important;
+}
+
+.action-sheet-group {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    border-radius: 7px !important;
+}
+
+.action-sheet-button {
+    font-size: 18px !important;
+    font-family: 'eco-medium' !important;
+    color: var(--filter-color) !important;
+    border-bottom: 0.5px solid #cccccc !important;
+    border-radius: 7px !important;
+}
+
+.notioi {
+    ngx-progressive-img-loader {
+        .ngx-progressive-img-container {
+            background-color: rgb(204, 204, 204) !important;
+            height: 43px !important;
+            border-radius: 5px;
+            width: 43px !important;
+        }
+    }
+}
+
+.tic {
+    ngx-progressive-img-loader {
+        .ngx-progressive-img-container {
+            background-color: rgb(204, 204, 204) !important;
+            border-radius: 4px !important;
+            height: 70px !important;
+            width: 70px !important;
+        }
+    }
+}
+
+.div {
+    ngx-progressive-img-loader {
+        .ngx-progressive-img-container {
+            background-color: rgb(204, 204, 204) !important;
+            border-radius: 5px;
+        }
+    }
+}
+
+ion-action-sheet {
+    --backdrop-opacity: 0.7 !important;
+}
+
+.modal-style {
+    --height: 308px;
+    --max-height: 312px;
+    padding: 0px 20px;
+    padding-top: calc(100vh - 352px);
+    --border-radius: 7px;
+}
+
+.load {
+    --backdrop-opacity: 0.8;
+}
+
+.social-sharing {
+    padding-top: calc(100vh - 237px);
+    --border-radius: 7px;
+    --height: 425px;
+    --max-height: 450px;
+}
+
+.add-review {
+    --height: 328px;
+    --min-height: 330px;
+    padding-top: calc(100vh - 331px);
+}
+
+.single-details {
+    padding-top: calc(100vh - 406px);
+    --border-radius: 7px;
+    --height: 425px;
+    --max-height: 450px;
+}
+
+.modall-stylee {
+    --height: 336px;
+    --max-height: 346px;
+    padding-top: calc(100vh - 147px) !important;
+    --border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.alert-style {
+    --min-width: 80%;
+    --min-height: 110px;
+    border-radius: 0px !important;
+    .alert {
+        color: #58B7FF;
+    }
+}
+
+.alert-wrapper.sc-ion-alert-ios {
+    border-radius: 7px;
+}
+
+ion-text {
+    color: var(--filter-color);
+}
+
+.spinner-lines.sc-ion-loading-ios,
+.spinner-lines-small.sc-ion-loading-ios,
+.spinner-bubbles.sc-ion-loading-ios,
+.spinner-circles.sc-ion-loading-ios,
+.spinner-crescent.sc-ion-loading-ios,
+.spinner-dots.sc-ion-loading-ios {
+    color: var(--ion-back-color);
+    min-height: 308px;
+    width: 144px;
+    --backdrop-opacity: 0.5 !important;
+}
+
+.sc-ion-loading-ios-h {
+    --background: none !important;
+    --max-width: 295px !important;
+    --spinner-color: var(--ion-back-color) !important;
+    font-size: 14px;
+    --backdrop-opacity: 0.5 !important;
+}
+
+.loading-wrapper {
+    ion-spinner {
+        color: var(--ion-back-color) !important;
+    }
+    .loading-content {
+        font-family: eco-medium !important;
+    }
+}
+
+.alert-radio-inner {
+    border-color: white !important;
+}
+
+.alert-radio-label {
+    font-family: 'eco-medium' !important;
+    color: var(--theme-color) !important;
+}
+
+.alert-radio-icon {
+    border-color: var(--ion-back-color) !important;
+    .alert-radio-inner {
+        background: var(--ion-back-color) !important;
+    }
+}
+
+.alert-button {
+    color: var(--ion-back-color) !important;
+    font-family: eco-medium !important;
+}
+
+.custom-alert {
+    direction: ltr !important;
+    ion-backdrop {
+        --backdrop-opacity: 0.6;
+    }
+    .alert-message {
+        font-family: 'eco-medium' !important;
+        color: var(--placeholder-color) !important;
+        margin: 0 !important;
+        padding-bottom: 21px !important;
+        direction: ltr !important;
+    }
+    .alert-wrapper {
+        width: 80%;
+        min-width: 80%;
+        direction: ltr !important;
+        .alert-title {
+            text-align: left;
+            color: var(--theme-color);
+            font-family: 'eco-medium';
+            padding-top: 14px;
+            padding-bottom: 8px;
+            direction: ltr !important;
+        }
+        .alert-button-group {
+            display: flex;
+            justify-content: space-between;
+            direction: ltr !important;
+            button {
+                width: 35%;
+                direction: ltr !important;
+                text-align: center;
+                margin: 0 !important;
+                position: relative;
+                left: 63%;
+                height: 35px;
+                top: -7px;
+                span {
+                    color: var(--white-color);
+                    font-size: 14px !important;
+                    font-family: 'eco-medium' !important;
+                    text-transform: capitalize !important;
+                    justify-content: center;
+                }
+                &:last-child {
+                    background: var(--theme-color);
+                }
+            }
+        }
+    }
+}
+
+[no-data] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 35%;
+}
+
+[err] {
+    color: red;
+    font-family: 'eco-medium';
+    font-size: 13px;
+}

@@ -1,0 +1,151 @@
+.header {
+    img {
+        margin-top: 30px;
+        margin-left: 13px;
+    }
+}
+
+.image-cropper {
+    text-align: center;
+    img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+}
+
+.normal {
+    font-size: 25px;
+    color: var(--black-color);
+}
+
+.filter {
+    font-size: 14px;
+    color: var(--filter-color);
+}
+
+.userac {
+    background-color: #EDF6FB;
+    height: 70px;
+}
+
+h4 {
+    font-family: 'eco-regular';
+    color: var(--filter-color);
+}
+
+.vr {
+    border-left: 0.1px solid var(--filter-color);
+    opacity: 0.3;
+    height: 40px;
+    position: absolute;
+    margin-left: 125px;
+    margin-top: -45px;
+}
+
+.noti {
+    margin-top: 10px;
+    ion-icon {
+        font-size: 14px;
+    }
+    ion-text {
+        font-size: 16px;
+    }
+}
+
+ion-col {
+    div {
+        padding-top: 0px;
+        font-family: eco-medium;
+    }
+}
+
+hr {
+    border: 0.1px solid var(--filter-color);
+    opacity: 0.1;
+}
+
+ion-item-group {
+    border: 1.2px solid var(--filter-color);
+    border-radius: 7px;
+    --border-color: var(--filter-color);
+    --border-width: 1.5px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    ion-item {
+        --min-height: 30px;
+        --padding-top: 3px;
+        --padding-bottom: 3px;
+        --inner-padding-end: 3px;
+    }
+    ion-text {
+        font-size: 15px;
+        color: var(--black-color);
+    }
+    ion-icon {
+        font-size: 16px;
+    }
+}
+
+.footer {
+    ion-button {
+        background-color: #EDF6FB;
+        border: 0.2px solid var(--filter-color);
+        border-radius: 5px;
+        height: 44px;
+        font-size: 18px;
+        color: var(--filter-color);
+    }
+}
+
+.bt {
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    direction: ltr !important;
+    ion-icon {
+        font-size: 31px;
+    }
+}
+
+.langu {
+    --padding-start: 13px;
+    --padding-end: 0px;
+    ion-label {
+        font-family: eco-medium;
+    }
+    ion-select {
+        font-family: eco-regular;
+    }
+}
+
+.btn {
+    background: #EDF6FB;
+    overflow: hidden;
+    height: 44px;
+    color: var(--filter-color);
+    font-family: 'eco-regular';
+    text-transform: capitalize;
+    font-size: 18px;
+    border: 1px solid #dddddd;
+    margin: 21px;
+}
+
+.p {
+    font-family: 'eco-medium';
+    margin-top: 0px;
+    color: var(--filter-color);
+}
+
+.h1 {
+    font-family: 'eco-medium';
+}
+
+ion-select {
+    ion-select-option {
+        color: var(--ion-back-color) !important;
+        font-family: eco-medium !important;
+    }
+}
